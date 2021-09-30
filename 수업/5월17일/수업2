@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.css_test {
+background-color : black;
+background-image : url("http://superkts.com/img/css/ghost.gif");
+background-position : 50% 50%;
+background-repeat : no-repeat;
+background-size : 0;
+border-radius : 30px;
+cursor : pointer;
+height : 700px;
+}
+.css_test.red_on {
+box-shadow : 0 0 200px red inset, 0 0 15px red inset;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+ function j_test(){
+
+	var audio=document.getElementById("audio");
+	audio.play();
+	// :not(:animated) 셀렉터를 사용하여 중복실행 방지
+$( ".css_test:not(:animated)" ).addClass("red_on").delay("3000").animate({ "background-size" : "+=100%" }, 600, function(){
+
+$( ".css_test" ).animate({ "background-size" : "-=100%" }, 10000, function(){
+$(this).removeClass( "red_on" ); // 빨간 테두리 없애기
+});
+});
+}
+</script>
+</head>
+<body>
+
+
+<div class="css_test" onclick="j_test()"></div> 
+<audio id="audio" src="impossible.mp3" controls="controls"></audio>
+</body>
+</html>

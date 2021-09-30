@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제3-2</title>
+
+    <script>
+
+ // p 태그를 클릭하면 border 를 3픽셀 솔리드 red로 바꾸기
+
+ // 고전 이벤트 모델과
+
+ // 인라인 이벤트 모델 , 표준 이벤트를 다사용해서 이벤트를 연결해 보세요.
+
+//인라인  이벤트 모델
+	/*function myF(a){
+		var aa = document.getElementById("test");
+		
+		aa.style.borderWidth = "3px";
+		aa.style.borderStyle = "solid";
+		aa.style.borderColor = "red";
+		
+	}*/
+
+//인라인 이벤트
+// 태그에 바로 이벤트 속성주기
+// this : 이벤트가 발생한 객체 자신
+
+
+ function myF(id){
+
+	document.getElementById(id).style.border= "3px solid red";
+
+ }
+
+    </script>
+
+</head>
+
+<body>
+
+<p id="test" onclick="myF('test');">클릭해 보세요</p>
+<p id="test2" onclick="myF('test2');">클릭해 보세요</p>
+<p id="test3" onclick="myF('test3');">클릭해 보세요</p>
+</body>
+
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.change0{
+color:yellow;
+background-color:green;
+}
+.change1{
+color:green;
+background-color:yellow;
+}
+.change2{
+color:red;
+font-size: 3em;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function () {
+$("button").click(function () {
+//each( ) 메서드와 addClass() 메서드를 이용하여 class 속성 추가 
+$("h2").each(function(n){
+$(this).addClass("change"+n);
+});
+
+});
+});
+</script>
+</head>
+<body>
+<h2>변명 중에서도 가장 어리석고 못난 변명은</h2>
+<h2>"시간이 없어서" 하는 변명입니다.</h2>
+<h2>by 에디슨</h2>
+<button>클래스생성</button>
+</body>
+</html>

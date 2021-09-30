@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.important {
+font-weight: bold;
+font-size: xx-large;
+}
+
+.blue {
+color: blue;
+border: 2px solid red;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+// removeclass
+
+$(document).ready(function(){
+
+$("button").click(function(){
+
+$("p").removeClass("blue");
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<h1 class="blue">Heading 1</h1>
+<h2 class="blue">Heading 2</h2>
+
+<p class="blue">This is a paragraph.</p>
+<p class="blue">This is another paragraph.</p>
+
+<button>삭제</button>
+
+</body>
+</html>
+

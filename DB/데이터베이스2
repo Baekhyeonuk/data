@@ -1,0 +1,43 @@
+<데이터베이스>
+
+1. 조인 
+
+INNER JOIN(내부 조인)
+일반적인 조인 가장 많이  활용
+두 테이블에서 값이  일치하는 레코드를 반환 
+
+SELECT 테이블명.칼럼-FROM 기준 테이블1-INNER JOIN 참조 테이블2-ON 일치하는 칼럼 
+
+구매내역이 있는 사용자의 아이디,이름(userTbl),물품명,가격(buyTbl)
+
+select userTbl.userID,userTbl.name,buyTbl.prodName,buyTbl.price from userTbl inner join buyTbl on userTbl.userID=buyTbl.userID;
+
+AS문 
+select u.userID,u.name,b.prodName,b.price from userTbl as u inner join buyTbl as b on u.userID=b.userID;
+
++  이름이 김범수인 사용자의
+구매내역이 있는 사용자의 아이디,이름(userTbl),물품명,가격(buyTbl)
+select u.userID,u.name,b.prodName,b.price from userTbl as u inner join buyTbl as b on u.userID=b.userID where u.name='김범수';
+
+아이디별로 아이디, 이름, 주소, 총구매금액
+select u.userID,u.name, u.addr, SUM(b.price*b.amount) from userTbl as u inner join buyTbl as b on u.userID=b.userID GROUP by b.userID;
+
+구매내역이 있는 물품의 물품명, 제조회사, 재고량을 출력
+select b.prodName,p.prodCom,p.prodStock from prodTbl as p inner join buyTbl as b on p.prodName=b.prodName;
+
+총 구매금액이 1000원보다 큰 상품의 총 구매액, 상품명, 제조사 조회
+select SUM(b.price*b.amount), b.prodName, p.prodCom from prodTbl as p inner join buyTbl as b on p.prodName=b.prodName GROUP BY b.prodName HAVING SUM(b.price*b.amount)>1000;
+
+userTbl u userID,name
+buyTbl b
+prodTbl p prodName,prodCom
+구매내역이 있는 사용자 아이디,이름,구매상품명,상품의 제조 회사
+
+select u.userID,u.Name,p.prodName,p.prodCom 
+from userTbl as u 
+join buyTbl as b 
+on u.userID=b.userID 
+join prodTbl as p 
+on b.prodName=p.prodName;  
+
+

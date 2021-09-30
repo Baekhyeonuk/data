@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+
+
+
+
+  </style>
+  
+  <script>
+
+	var a = Number(prompt("줄",""));
+	var b = Number(prompt("칸",""));
+
+	AutoTable(a,b);
+
+ function AutoTable(x,y){
+		var num=1;
+	document.write("<table border=1>");
+
+	for(var i=1; i<=x; i++){
+	 document.write("<tr>");
+
+	  for(var j=1; j<=y; j++){
+		document.write("<td>"+num+"</td>");
+		num++;
+
+	 		}
+
+	 document.write("</tr>");
+
+		}
+	document.write("</table>");
+  }
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

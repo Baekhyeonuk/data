@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>과제3</title>
+
+ <style>
+
+ p { background-color:yellow; color:red;}
+
+ </style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+ </script>
+
+ <script>
+
+ $(document).ready(function(){
+
+  //버튼을 클릭하면 h1 태그의 배경색상을 p 태그의 글자색상으로 바꾸기
+	$("button").click(function(){
+		var x = $("p").css("color");
+		$("h1").css("background-color",$("p").css("color"));
+		
+
+	});
+  
+
+ });
+
+ </script>
+
+</head>
+
+<body>
+
+<p>첫번째 문장</p>
+
+<h1>두번째 문장</h1>
+
+<button>버튼을 클릭하세용</button>
+
+</body>
+
+</html>

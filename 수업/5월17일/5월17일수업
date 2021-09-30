@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트</title>
+<style type="text/css">
+.css_test {
+margin : 20px 10px;
+text-align : right;
+width : 700px;
+}
+.css_test img {
+position : relative; /* 이 설정을 해주어야 자동차가 움직입니다 */
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+
+
+function j_test_gogo(o, n){
+
+
+$(o).animate({left:-500,top:220}, n, function(){
+$(o).hide();
+});
+
+}
+
+</script>
+</head>
+<body>
+<div class="css_test">
+<img onclick="j_test_gogo(this, 3000)" src="http://superkts.com/img/css/car0194.gif" /><br />
+<img onclick="j_test_gogo(this, 2000)" src="http://superkts.com/img/css/car0194.gif" /><br />
+<img onclick="j_test_gogo(this, 1000)" src="http://superkts.com/img/css/car0194.gif" /><br />
+<img onclick="j_test_gogo(this, 500)" src="http://superkts.com/img/css/car0194.gif" /><br />
+<img onclick="j_test_gogo(this, 250)" src="http://superkts.com/img/css/car0194.gif" /><br />
+<img onclick="j_test_gogo(this, 10000)" src="http://superkts.com/img/css/car0194.gif" /><br />
+</div>
+</body>
+</html>

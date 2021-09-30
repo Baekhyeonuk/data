@@ -1,0 +1,42 @@
+UI구현
+
+
+[위치 속성]
+
+<position> : 위치 설정
+x 좌표 - left, y 좌표 - top
+1. position: static ==> 기본값 순서대로
+
+2. position: absolute ==> 많이 쓰임쓰
+가장 가까운 상위 요소(부모태그)를 기준으로 위치가 결정
+상위 요소가 없으면 위치는 body를 기준으로 설정
+
+	position: absolute
+	left:50px; top:50px; 
+
+
+3. position : relative ==> 상대적 위치
+static의 끝 위치부터 계산 (앞태그의 위치에 따라 기준)
+
+4. position:fixed ==> 화면(body)을 기준으로 절대 위치
+스크롤 되어도 위치 고정
+
+
+<z-index>
+기본적으로 뒤에 입력한 태그가 앞면에 위치
+z-index 에 값을 주면 가장 큰 값이 앞면에 위치
+static 은 예외
+
+<overflow> 내부 요소가 상위 요소의 범위를 벗어날 경우 처리방식
+overflow : show 기본 보여짐
+1. overflow : hidden ==> 넘치면 숨김
+2. overflow : scroll ==> 스크롤 바 생성
+3. overflow : auto ==> 넘치면 자동생성
+
+
+<float>
+1.float:left ==> 태그를 왼쪽으로 붙임
+2.float:right ==> 오른쪽으로 붙임
+
+## clear:left, right, both 앞에 있던 float 속성을 초기화
+ clear:both;

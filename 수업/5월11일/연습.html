@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>연습</title>
+<style>
+	div {
+		width:300px;
+		height:150px;
+		background-color:#FFFF00;
+		font-size:20px;
+	}
+</style>
+<script>
+
+	window.onload=function(){
+
+		var box1=document.getElementById("myForm").elements[0];
+		box1.onclick = myFunction;
+	}
+
+	function myFunction() {
+
+		var c = document.getElementById("myForm").elements[0].checked;
+
+		//alert(c);
+
+		for(var i = 1; i < 4; i++){
+
+			var box=document.getElementById("myForm").elements[i];
+			box.checked = c;
+
+		}
+
+	}
+
+</script>
+</head>
+<body>
+
+
+	<form id="myForm" name="test">
+		<input type="checkbox">
+		<input type="checkbox" value="aa">aa
+		<input type="checkbox" value="aa">bb
+		<input type="checkbox" value="aa">cc
+
+	</form>
+
+
+
+</body>
+</html>

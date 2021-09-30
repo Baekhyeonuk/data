@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+	// 
+
+	function aaa() { 
+
+	//document.getElementById("demo").style.color = "red";
+	//document.getElementById("intro").style.backgroundColor = "yellow";
+	// id태그로 접근 
+	
+	//var x = document.getElementsByTagName("p");
+	//x[0].style.color="red";
+	//x[1].style.backgroundColor="yellow";
+	// 태그명으로 접근 할 때 배열로 반환
+/*
+	var x = document.getElementsByClassName("aaa");
+	x[0].style.color="red";
+	x[1].style.backgroundColor="yellow";
+	// 클래스명으로 접근 할 때 배열로 반환	
+*/
+
+	var fcolor = ["red","blue","green"];
+
+	for(var i=0; i<fcolor.length; i++){
+	
+	
+	var x = document.getElementsByClassName("aaa");
+	x[i].style.color = fcolor[i];
+
+	}
+	}
+
+
+
+
+  </script>
+
+
+</head>
+<body>
+	<button onclick="aaa();">클릭하세요</button>
+	<p class="aaa">Hello World!</p>
+
+	<p class="aaa">데모컨텐츠</p>
+
+	<p class="aaa">문서객체 접근하기</p>
+
+</body>
+
+</html>

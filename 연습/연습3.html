@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>연습3</title>
+<style>
+  div {
+      width:300px;
+      height:150px;
+      background-color:#FFFF00;
+      font-size:20px;
+  }
+</style>
+
+<script>
+
+  function myFunction() {
+    var x = document.getElementById("mySelect").options.length;
+    var x2 = document.getElementById("mySelect").options[0].text;
+    var x3 = document.getElementById("mySelect").options[1].value;
+    document.getElementById("demo").innerHTML = x;
+    document.getElementById("demo").innerHTML += x2;
+    document.getElementById("demo").innerHTML += x3;
+ }
+
+</script>
+</head>
+
+<body>
+
+  <select id="mySelect">
+    <option value="1">Apple</option>
+    <option value="2">Pear</option>
+    <option value="3">Banana</option>
+    <option value="4">Orange</option>
+  </select>
+  <button onclick="myFunction()">버튼을 눌러보세용</button>
+  <div id="demo"></div>
+  
+</body>
+</html>

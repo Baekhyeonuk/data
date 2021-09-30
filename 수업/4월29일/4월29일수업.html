@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>4월29일수업 </title>
+  <meta charset="UTF-8">
+  <style>
+	h2~div{color: red; }
+	/* 후손 선택자( #d1 hi), 자손선택자(#d1>h1,#d2>h1 ), (div hi)
+ #d1 hi{color: red;} ,#d1>h1, #d2>h1{color: red; }, div h1=div내에 h1전체
+    h2+div : 형제(동위)선택자-바로밑에오는것 , h2~div h2다음에 오는 모두선택 */
+
+	table>tbody>tr>th{color: red;
+		background-color: yellow;}
+	/* 테이블 접근시 table밑에 tbody를 꼭 쓸 것*/
+
+
+  </style>
+</head>
+<body>
+	<h2>제목</h2>
+	<div id="d1">
+	 동위 선택자
+	  <h1>후손 이면서 자손</h1>
+	  <div>
+		div내용
+		<h1>후손</h1>
+		<h2>후손 제목</h2>
+	  </div>
+	</div>
+
+	<div id="d2">
+		<h1>두번째 후손이면서 자손</h1>
+	</div>
+
+	<table border="1">
+		<tr>
+		 <th>Name</th>
+		 <th>Region</th>
+		</tr>
+		<tr>
+		 <td>윤인성</td>
+		 <td>서울특별시 강서구 내발산동</td>
+		</tr>
+	</table>
+
+
+
+
+
+</body>
+
+</html>

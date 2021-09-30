@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<style>
+ul li { list-style-type:none; }
+</style>
+<script>
+$(document).ready(function(){
+
+$("button").click(function(){
+
+var txt = "each text : "
+
+$("li").each(function(){
+
+txt+= $(this).text();
+
+});
+
+$("p").text(txt);
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<button>Alert the value of each list item</button>
+
+<ol>
+<li>Coffee</li>
+<li>Milk</li>
+<li>Soda</li>
+</ol>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+ $(document).ready(function(){
+
+        $("#bt1").click(function(){
+
+  //clone 을 이용하여 db_list1에서 선택한 옵션을 db_list2에 복사하기
+	/*//var a = $("#db_list1");
+		var a = $("#db_list1:selected").option;
+	$("a").clone(true).append("#db_list2");
+  	});
+
+ });*/
+// 풀이
+// var a = $(#db_list1 > option:selected).val();
+// var b = $(#db_list1 > option:selected).text();
+// $(#db_list2).append("<option value="+a+">"+b+"</option>");
+
+	$("#db_list1 > option:selected").clone().appendTo("#db_list2");
+	});
+
+});
+
+
+
+ </script>
+
+</head>
+
+<body>
+
+ <select id="db_list1">
+
+  <option value="1">자바</option>
+
+  <option value="2">오라클</option>
+
+  <option value="3">스프링</option>
+
+  <option value="4">jQuery</option>
+
+ </select>
+
+ <select id="db_list2">
+
+ </select>
+
+ <br />
+
+ <button id="bt1">복사하기</button>
+
+ 
+
+</body>
+
+</html>
+

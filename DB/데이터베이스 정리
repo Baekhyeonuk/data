@@ -1,0 +1,414 @@
+<데이터베이스 정리>
+
+<데이터 베이스 추가>
+
+CREATE DATABASE sqlDB CHARACTER SET utf8 	COLLATE utf8_general_ci;
+CREATE DATABASE testDB CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+SHOW DATABASES;
+
+DESC 테이블명 : 해당 테이블의 칼럼 정보
+
+<사용자 관리>
+
+1. 사용자 추가
+
+CREATE USER '아이디'@'localhost' IDENTIFIED BY '패스워드';
+
+CREATE USER '아이디'@'%' IDENTIFIED BY '패스워드';
+
+CREATE USER 'abc1'@'localhost' IDENTIFIED BY '111111';
+
+2. 비밀번호 변경
+
+ALTER USER 'abc1'@'localhost' IDENTIFIED BY '1234';
+
+ALTER USER 'abc1'@'localhost' IDENTIFIED WITH mysql_native_password BY '111111';
+
+FLUSH PRIVILEGES;
+
+==> 환경 설정 시 바로 적용
+
+3. 사용자 삭제
+
+DROP USER 사용자명
+
+3. 사용자 권한
+
+GRANT 권한 ON 데이터베이스.테이블 TO '아이디'@'호스트'
+###
+DBA 
+
+GRANT ALL ON *.* TO 'abc1'@'localhost';
+GRANT ALL ON *.* TO 'abc1'@'localhost' WITH GRANT OPTION;
+
+==> 권한부여까지 줌
+SHOW GRANTS FOR 사용자명
+
+REVOKE CREATE ON *.* FROM 'abc1'@'localhost';
+
+GRANT ALL ON testdb.* TO 'abc1'@'localhost';
+
+testdb, sqldb
+
+sqldb,, select
+
+testdb usertbl all
+
+GRANT ALL ON testdb.usertbl TO 'abc1'@'localhost';
+
+GRANT SELECT ON sqldb.* TO 'abc1'@'localhost';
+
+4. 권한 제거
+
+REVOKE 권한 ON 데이터베이스.테이블 FROM 사용자
+
+## 권한만 제거 가능
+
+## 대상 객체는 불가
+
+REVOKE ALL ON *.* FROM 'abc1'@'localhost';
+REVOKE INSERT ON *.* FROM 'abc2'@'localhost';
+
+
+<트랜잭션>
+
+SELECT @@autocommit;
+
+SET SESSION autocommit = 0;
+
+접속할 때 마다 설정
+
+복구 시점 정하기
+
+START TRANSACTION;
+
+SAVEPOINT A
+
+ROLLBACK TO A
+
+<DDL>
+
+(DDL 데이터 베이스 정의어 : 테이블 구조나 제약조건 설정)
+
+SHOW
+
+CREATE
+
+ALTER : 구조 수정
+
+DROP : 자체 삭제
+
+TRUNCATE TABLE 테이블명 : 비우기, rollback 안됨
+
+
+1. PRIMARY KEY
+
+테이블에 존재하는 많은 행의 데이터를 구분할 수 있는 식별자
+
+중복되어서도 안되며 NULL 안됨
+
+""
+Ex) 회원 테이블의 회원 아이디, 학생 테이블의 학번
+
+테이블에서는 기본 키를 하나 이상의 열에 설정 가능 
+
+-- 테이블 생성 시
+
+DROP TABLE IF EXISTS Persons;
+
+CREATE TABLE Persons (
+
+    ID varchar(10) PRIMARY KEY,
+
+    Name varchar(10) NOT NULL,
+
+    Age int DEFAULT 20 );
+
+-- 생성된 테이블 수정
+
+ALTER TABLE Persons ADD PRIMARY KEY (ID) 
+
+-- 기본 키 삭제
+
+ALTER TABLE Persons DROP PRIMARY KEY 
+
+2. FOREIGN KEY
+
+다른 테이블의 PRIMARY KEY를 참조하는 테이블의 필드
+
+두 테이블 사이의 관계 선언
+
+데이터의 무결성을 보장해 주는 역할
+
+외래 키 관계를 설정하면 하나의 테이블이 다른 테이블에 의존
+
+SHOW CREATE TABLE buytbl : 테이블 생성 구조 조회
+
+SHOW KEYS FROM buytbl : 키 설정 조회
+
+##  컬럼 조회
+
+SHOW COLUMNS FROM 테이블명
+
+DESC 테이블명
+
+### 제약조건(외래키) 추가
+
+ALTER TABLE 테이블명
+
+    ADD CONSTRAINT 제약조건명
+
+    FOREIGN KEY (컬럼명) 
+
+    REFERENCES 참조테이블(참조컬럼);
+
+ALTER TABLE buyTbl
+
+    ADD CONSTRAINT FK_userTbl_buyTbl 
+
+    FOREIGN KEY (userID) 
+
+    REFERENCES userTbl(userID);
+
+## 외래키 설정 삭제
+
+ALTER TABLE 테이블명
+
+DROP FOREIGN KEY 제약조건명;
+
+ALTER TABLE buytbl 
+
+DROP FOREIGN KEY FK_userTbl_buyTbl;
+
+외래키 설정 시
+
+참조 테이블의 기본 키 값 변경 할 경우 변경 안 됨
+
+기준 테이블
+의 데이터가 변경되었을 때 외래 키 테이블도 자동으로 적용되도록 설정
+
+** ON UPDATE CASCADE
+** ON DELETE CASCADE
+
+ALTER TABLE buyTbl
+
+DROP FOREIGN KEY FK_userTbl_buyTbl;
+
+ALTER TABLE buyTbl 
+
+ ADD CONSTRAINT FK_userTbl_buyTbl
+
+  FOREIGN KEY (userID)
+
+  REFERENCES userTbl (userID)
+
+  ON UPDATE CASCADE ON DELETE CASCADE;
+
+mysql 8.0 부터 지원
+
+ALTER TABLE userTbl
+
+ ADD CONSTRAINT CK_birthYear
+
+ CHECK  (birthYear >= 1900 AND birthYear <= YEAR(CURDATE());
+
+SHOW TABLE STATUS FROM testdb;
+
+innoDB 형식에만 적용가능 <==> myISAM
+
+<테이블 삭제>
+DROP TABLE table_name ==> 테이블 자체 삭제
+
+TRUNCATE TABLE table_name  ==> DB 개체 명령어, rollback 안됨
+
+DELETE FROM table_name ==> 데이터 조작 명령어
+
+<테이블 수정>
+DROP TABLE IF EXISTS Persons;
+
+CREATE TABLE Persons (
+
+    ID varchar(10) PRIMARY KEY,
+
+    Name varchar(10) NOT NULL,
+
+    Age int DEFAULT 20 );
+
+1. 필드(컬럼) 추가
+ALTER TABLE table_name
+
+ADD column_name datatype;
+
+ALTER TABLE Persons
+
+ADD tel varchar(30);
+
+ALTER TABLE Persons ADD addr2 varchar(30) AFTER Name; 
+
+ALTER TABLE Persons ADD tel VARCHAR(10) NULL FIRST ;
+
+ALTER TABLE Persons ADD tel VARCHAR(10) NULL AFTER FirstName ;
+
+2. 필드 삭제
+ALTER TABLE table_name
+
+DROP COLUMN column_name;
+
+ALTER TABLE Persons DROP COLUMN  addr2
+
+3. 필드 수정
+
+ALTER TABLE table_name
+
+CHANGE COLUMN column_name column_name datatype;
+
+ALTER TABLE Persons
+
+CHANGE COLUMN Name FirstName VARCHAR(10);
+
+<인덱스>
+
+장점
+검색 속도가 무척 빨라질 수 있음 (항상 그런 것은 아님)
+
+쿼리의 부하가 줄어들어 시스템 전체의 성능 향상
+
+단점
+인덱스가 데이터베이스 공간을 차지해서 추가적인 공간 필요
+
+대략 데이터베이스 크기의 10% 정도의 추가 공간 필요
+
+처음 인덱스 생성하는데 시간 소요 
+
+데이터의 변경 작업 (Insert, Update, Delete)이 자주 일어나는 경우 성능이 나빠질 수도 있음
+
+인덱스의 종류
+
+클러스터형 인덱스 (Clustered Index)
+
+‘영어 사전’과 같은 책
+
+테이블 당 한 개만 지정 가능
+
+행 데이터를 인덱스로 지정한 열에 맞춰 자동 정렬
+
+기본키
+
+보조 인덱스 (Secondary Index)
+
+책 뒤에 <찾아보기>가 있는 일반 책
+
+테이블당 여러 개도 생성 가능
+
+- 인덱스 조회
+
+SHOW INDEX FROM 테이블명
+
+- 인덱스 상태
+
+SHOW TABLE STATUS LIKE '테이블명';
+
+Data_length : 클러스터형(기본키) 인덱스 포함한 데이터 크기
+
+Index_length : 보조 인덱스 크기(찾아보기 공간)
+
+
+CREATE TABLE userTbl1 
+
+( userID   CHAR(8) NOT NULL,
+
+  name     VARCHAR(10) NOT NULL,
+
+  birthYear INT NOT NULL,
+
+  addr    CHAR(2) NOT NULL,
+
+  mobile1 CHAR(3),
+
+  mobile2 CHAR(8),
+
+  height     SMALLINT,
+
+  mDate     DATE
+
+);
+
+CREATE TABLE usertbl1 SELECT * FROM usertbl ORDER BY RAND();
+
+SHOW TABLE STATUS LIKE 'userTbl1';
+
+- 인덱스 생성
+CREATE INDEX index_name
+
+ON table_name (column1, column2, ...);
+
+CREATE INDEX idx_userTbl_addr 
+
+   ON userTbl1 (addr);
+
+ANALYZE TABLE userTbl1; ==> 인덱스 적용
+
+CREATE UNIQUE INDEX idx_userTbl_name
+
+ ON userTbl1 (name);
+
+select name from usertbl where name='김범수'
+
+INSERT INTO userTbl1 VALUES('KKK', '김범수', 1979, '경남', '011', '2222222', 173, '2012-4-4');
+
+-- 제약조건 확인
+SELECT table_name, constraint_name
+
+    FROM information_schema.referential_constraints
+
+    WHERE constraint_schema = 'testdb';
+
+- 삭제
+DROP INDEX index_name ON table_name;
+
+DROP INDEX idx_userTbl_name ON usertbl1;
+
+​
+
+<성능비교>
+
+SELECT COUNT(*) FROM employees;
+
+CREATE TABLE Emp SELECT * FROM employees ORDER BY RAND();
+
+CREATE TABLE Emp_C SELECT * FROM employees ORDER BY RAND();
+
+CREATE TABLE Emp_Se SELECT * FROM employees ORDER BY RAND();
+
+SHOW TABLE STATUS;
+
+
+ALTER TABLE Emp_C ADD PRIMARY KEY(emp_no);
+
+CREATE INDEX idx_emp_no ON Emp_Se (emp_no);
+
+ALTER TABLE Emp_Se ADD INDEX idx_emp_no (emp_no);
+
+ANALYZE TABLE Emp, Emp_c, Emp_Se;
+
+
+SHOW INDEX FROM Emp;
+
+SHOW INDEX FROM Emp_C;
+
+SHOW INDEX FROM Emp_Se;
+
+SHOW TABLE STATUS LIKE 'emp_c';
+
+SHOW TABLE STATUS LIKE 'emp_se';
+
+
+SHOW GLOBAL STATUS LIKE 'Innodb_pages_read'; --읽은 페이지 수
+
+SELECT * FROM Emp_Se WHERE emp_no = 100000;
+
+SHOW GLOBAL STATUS LIKE 'Innodb_pages_read';
+
+SELECT * FROM Emp_C WHERE emp_no < 11000;
+

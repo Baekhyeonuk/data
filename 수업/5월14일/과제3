@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title> 과제3 </title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+ $(document).ready(function(){
+
+​
+
+  // 버튼을 클릭하면 입력양식에서 값을 입력받아서 
+
+  // 셀렉트 의 option value 와 text 추가하기
+	
+
+
+​
+
+ });
+
+ </script>
+
+</head>
+
+<body>
+
+ <h1>텍스트와 value입력</h1>
+
+ 셀렉트 option 텍스트 내용 <input type="text" id="aaa" value="">
+
+ 셀렉트 option value 값<input type="text" id="bbb" value="">
+
+ <br />
+
+ <select>
+
+ </select>
+
+ <button>목록 추가</button>
+
+</body>
+
+</html>

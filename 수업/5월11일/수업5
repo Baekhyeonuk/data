@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<script>
+
+/*
+function aaa() {
+// 변수를 선언합니다.
+document.getElementById("myAnchor").setAttribute("href", "http://www.naver.com");
+document.getElementById("myAnchor").setAttribute("target", "_blank");
+document.getElementById("myAnchor").innerHTML = "네이버";
+}
+*/
+/*
+// 이미지 태그 
+window.onload = function () {
+// 변수를 선언합니다.
+var img = document.createElement("img");
+// <imgn src=´´>
+img.setAttribute("src", "img/mysql.jpg");
+img.setAttribute("width", "100");
+// 노드를 연결합니다.
+document.getElementById("myDIV").appendChild(img);
+};
+*/
+
+// css에서 속성이 "-"으로 연결된 경우 "-"를 빼고 바로 뒷글자를 대문자로 사용 
+// ex) style.background-color(x) style.backgroundColor (o)
+
+
+</script>
+</head>
+<body>
+<!--
+<button onclick="aaa();">클릭하세요</button>
+<a id="myAnchor" href="http://www.seoulit.co.kr">학원홈페이지</a>
+-->
+<!--
+<div id="myDIV">
+
+-->
+
+
+
+</body>
+</html>

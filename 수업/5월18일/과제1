@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+  $(document).ready(function(){
+
+   // each 와  eq() 함수를 이용하여 
+
+   // 각 입력양식의 배경 색상과 값을
+
+   // 배열 요소로 할당하시요.
+
+   
+/*
+   var ar = ["red", "yellow", "orange", "gray", "blue"];
+
+   $("button").click(function(){
+
+   $.each(ar,function(a){
+
+	$("input").eq(a).css("background-color",ar[a]);
+	$("input").eq(a).val(ar[a]);
+
+	});
+
+       });*/
+
+	//풀이
+   var ar = ["red", "yellow", "orange", "gray", "blue"];
+
+   $("button").click(function(){
+
+	 $.each(ar,function(i,a){
+
+		$("input:text").eq(i).css("background-color",a);
+
+		var x = i+1;
+
+		$("input:text").eq(i).val(x+":"+a);
+
+
+	  });
+	});
+
+
+
+
+  });
+
+ </script>
+
+</head>
+
+<body>
+
+<input type="text" value="">
+
+<br />
+
+<input type="text" value="">
+
+<br />
+
+<input type="text" value="">
+
+<br />
+
+<input type="text" value="">
+
+<br />
+
+<input type="text" value="">
+
+<br />
+
+<button>입력양식에 배경입히고 값 넣기</button>
+
+</body>
+
+</html>
+

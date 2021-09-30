@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제3-3</title>
+
+    <script>
+
+ // p 태그를 클릭하면 border 를 3픽셀 솔리드 red로 바꾸기
+
+ // 고전 이벤트 모델과
+
+ // 인라인 이벤트 모델 , 표준 이벤트를 다사용해서 이벤트를 연결해 보세요.
+
+	// 고전 이벤트 모델
+/*
+	window.onload = function(){ 
+
+		var aaa = document.getElementById("test");
+		aaa.onclick=function(){
+		aaa.style.borderWidth = "3px";
+		aaa.style.borderStyle = "solid";
+		aaa.style.borderColor = "red";
+		}
+
+	}*/
+
+// 풀이
+// 고전이벤트  모델
+// 대상객체.on이벤트명  = function(){}
+ window.onload = function(){ 
+	document.getElementById("test").onclick = function(){
+		document.getElementById("test").style.border= "3px solid red";
+
+
+	};
+
+ };
+
+
+
+    </script>
+
+</head>
+
+<body>
+
+<p id="test">클릭해 보세요</p>
+
+</body>
+
+</html>
+

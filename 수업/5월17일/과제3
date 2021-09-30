@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>INDEX</title>
+
+ <style>
+
+  .tdColor1 { background-color:yellow; }
+
+  .tdColor2 { background-color:green; }
+
+  th { background-color:white; }
+
+ </style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+    <script>
+
+ $(document).ready(function(){
+
+​
+
+ });
+
+    </script>
+
+</head>
+
+<body>
+
+ <button id="btn-add-row">행 추가하기</button>
+
+ <button id="btn-delete-row">행 삭제하기</button>
+
+ <hr>
+
+ <table id="mytable" border="1" cellspacing="0">
+
+  <thead>
+
+  <tr>
+
+   <th>제목</th>
+
+   <th>일시</th>
+
+  </tr>
+
+  </thead>
+
+  <tbody> 
+
+  </tbody>
+
+ </table>
+
+</body>
+
+</html>
+[출처] 2021년 5월 17일 디지털 컨버전스 과제 (서울IT교육센터직업전문학교) | 작성자 송미진

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.css_test input {
+border : 3px solid red;
+margin-top : 5px;
+padding : 10px;
+width : 500px;
+}
+.css_test input.copyed {
+border-color : blue;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+$(".ori").keyup(function(){
+
+var text = $(".css_test [name=ori]").val(); 
+$(".css_test [name=copyed]").each(function(n){
+
+$(this).val(n+1+" : " +text);
+
+
+} );
+
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<div class="css_test">
+아래에 빨간칸에 텍스트를 입력해 보세요 ^^<br>
+<input type="text" name="ori" class="ori"/><br><br>
+<input type="text" name="copyed" class="copyed" /><br>
+<input type="text" name="copyed" class="copyed" /><br>
+<input type="text" name="copyed" class="copyed" /><br>
+<input type="text" name="copyed" class="copyed" /><br>
+</div>
+
+</body>
+</html>

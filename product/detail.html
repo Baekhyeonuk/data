@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} {{object.pro_name}}상세보기 {% endblock %}
+{% block content %}  
+<h2>{{object.pro_name}} 상품정보페이지 </h2>
+	<div class="card">
+		{% if object.pro_img %}<img class="cart-img-top"  src="{{object.pro_img.url}}" style="width:40%;">{% endif %} 
+	<h3>{{object.pro_name}}</h3>
+	가격 : {{object.pro_price}} <br/>
+	무료배송
+	<div class="form-check">
+ 		 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  		<label class="form-check-label" for="flexRadioDefault1">
+    내일(토) 8/21  도착보장(6시간 30분 내 주문시/ 서울.경기 기준)
+  		</label>
+	</div>
+	<div class="form-check">
+  		<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+ 		 <label class="form-check-label" for="flexRadioDefault2">
+    내일(토) 8/21  새벽7시 전 도착보장(오후9시 전 주문시/ 서울.경기 기준)
+  		</label>
+	</div>
+<form action="{% url 'cart:cart_add' product_id=product.id%}" method="post">
+                {{add_to_cart}}
+                {% csrf_token %}
+            <input type="submit" class="btn btn-primary btn-sm" value="장바구니담기">
+            </form>
+<button type="button" class="btn btn-primary">바로구매</button>
+모델명/품번: MJNP3KH/A<br/>
+가전 모델: iPhone 12<br/>
+화면크기: 6.1형<br/>
+저장용량: 128GB<br/>
+쿠팡상품번호: 2251587935 - 8024401417<br/>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
+

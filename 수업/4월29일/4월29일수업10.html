@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS3</title>
+<style>
+
+	span, div { border: 1px solid #666666; }
+	div { background-color: yellow;  width:500px; }
+	span{display:inline-block; width:500px;}	
+
+	/* display:none; : 화면에서 아예 빠짐 ,  visibility:hidden; : 구조는 그대로 두고,  숨김 
+              인라인 span에  block속성부여(span{display:block;})  ,  
+    		블럭div에 inline속성부여 (div { background-color: yellow; display:inline}) , 
+       div는 너비 지정가능, span은 기본적으로 불가, span{display:inline-block; width:500px;} 블록속성을 부여하면 가능
+*/
+
+</style>
+</head>
+<body>
+
+	<span>인라인형식1</span><div id="box"><span>인라인형식2</span></div><span>인라인형식3</span><span>인라인형식4</span>
+
+
+</body>
+</html>

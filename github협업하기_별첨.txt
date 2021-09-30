@@ -1,0 +1,58 @@
+저장소에서 Settings를 누른 후, Collaboarators를 선택합니다. 오른쪽 텍스트 필드에 팀원 1의 깃허브 아이디나
+메일 주소를 입력한 후 Add Collaborator를 누릅니다. ->없으면 Manage access에 Invite a collaborator
+
+git init manuals 
+cd manuals
+git config user.name "사용자 이름"
+git config user.email 메일 주소 
+
+원경 저장소에 첫 커밋 푸시하기 
+vim overview.txt
+git add overview.txt
+git commit -m "overview"
+
+원격 저장소에 푸시하려면 먼저 원격 저장소 주소를 복사 
+
+git remote add origin 복사한 저장소 주소
+git push -u origin master
+
+git clone 원격 저장소 주소
+팀원들이 manuals라는 원격 저장소 복제
+
+여러 사람이 함께 문서를 수정하고 푸시하기 때문에 반드시 작업하기 전에 원격 저장소의 최신 커밋을 
+풀한 다음 자신의 커밋을 푸시해야 합니다. 
+
+팀원 모두가 원격 저장소 복제한 다음 팀장이 overview.txt를 수정해서 git add overview.txt
+ 'update overview'라는 메시지와
+함게 커밋하고 푸시했다고 가정, 복제뒤, 저장소에 새로운 커밋 git push
+
+vim apple.txt (a 누르면 편집 가능 / esc누르고 :wq하면 저장 종료가 된다.)
+git add apple.txt
+git commit -m "apple"
+
+
+git push -u origin master  ->저장소 올리기(git pull로 최신커밋 확인 후 올려야 한다.)
+
+
+git pull로 최신 커밋 정보를 가져온다. 
+
+git checkout -b f
+
+
+vim f1.txt
+git add f1.txt
+git commit -m "features1"
+
+f브랜치까지 함께 푸시하기 
+git push origin f
+
+<풀 리퀘스트로 푸시한 브랜치 병합하기>
+Pull requests->공동 작업자 중 누구나 살펴보고 병합할 수 있다.
+Merge pull request를 눌러 병합한다. ->메시지를 주고받을 수도 있다.
+Confirm merge를 누르면 브랜치 병합이 끝난다. 
+master화면에 브랜치 병합된 내용이 나타난다. 
+
+깃허브에서 협업할 때는 보통 작업자마다 브랜치를 만들어서 진행하고, 
+작업 중간중간 풀리퀘스트를 보내서 master브랜치에 병합합니다. 
+그래서 깃허브로 협업할 때는 다른 작업자의 변경 내용을 바로 반영하기 위해
+항상 풀(Pull)부터 한 다음 자신의 작업을 진행하는 것이 좋습니다.

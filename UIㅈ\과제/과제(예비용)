@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>과제</title>
+	 <meta charset="utf-8">
+    <style>
+	
+	body { 
+		width:1000px;
+		margin: 0 auto; 
+	}
+
+	li { list-style: none; }
+	a { text-decoration: none; }
+    img { border: 0; }
+
+	#header {
+		height:200px;
+		text-align:center;
+	}
+
+	#header img {
+		width:1000px;
+		height:200px;
+	}
+	#navigation {
+		height:60px;
+		width:1000px;
+		background-color:#00B4DB;
+	}
+
+	#navigation #topmenu {
+		height:40px;
+		width:1000px;
+		float:left;
+	}
+
+	#navigation #topmenu > ul { overflow: hidden;  }
+	#navigation #topmenu > ul > li { /*float: left;*/ float:left;zoom: 1;
+	list-style:none;
+	margin:0;
+	padding:0; }
+    #navigation #topmenu > ul > li > a {
+	display: block;
+	padding: 4px 8px;
+	text-decoration:none;
+	height:40px;padding:0 32px;
+	font:normal 16px nanumgothic, dotum;
+	letter-spacing:1px;
+	display:inline-block;
+	line-height:30px;
+	color: black;
+		/*display: block;
+		padding: 5px 10px;
+		border: 1px solid black;
+		color: white; 
+		width:150px;*/
+    }
+    #navigation #topmenu > ul > li > a:hover {
+		/*background: black;*/
+		color: green;
+    }
+    #navigation #topmenu > ul > li:first-child > a { border-radius: 10px 0 0 10px; }
+    #navigation #topmenu > ul > li:last-child > a  { border-radius: 0 10px 10px 0; }
+
+	#wrap {
+		height:100%;
+	}
+
+	#contents {
+		background-color: white;
+		width:100%;
+		height:100%;
+		float:left;
+	}
+/* 왼쪽 서브메뉴*/
+	#aside {
+		width:230px;
+		position:relative;
+		float:left;
+		padding:0 0 0 10px;
+	}
+	#aside > h2 {color:#686868;}
+
+	#aside > ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 200px;
+			background-color: #f1f1f1;
+			
+		}
+	#aside > ul >	li > a {
+			display: block;
+			color: #000;
+			padding: 8px 0 8px 16px;
+			/*text-decoration: none;*/
+		}
+
+	#aside > ul >	li > a.active {
+			background-color: #00B4DB;
+			color: white;
+	}
+
+	#aside > ul >	li > a:hover:not(.active) {
+			background-color: #00B4DB;
+			color: white;
+	}
+	#cafe { width:200px; height:130px;}
+	/* 메인 컨텐츠*/
+	#section {
+		background-color: white;
+		width:750px;
+		float:right;
+	}
+	#section > img:first { padding: 30px}
+	#logo2 {width: 750px}
+
+	/*하단레이아웃 박스*/
+	#footer {
+		height:100px;
+		clear:both;
+		background-color: gray;
+	}
+	/*하단레이아웃 글씨*/
+	#footer #bottom {
+		padding:20px 0 30px 0;
+		text-align: center;
+		color:#FFFFFF;
+		font-size: 0.8em;
+	}
+	
+	
+
+    </style>
+</head>
+<body>
+    <div id="header"><img src="https://cafeptthumb-phinf.pstatic.net/20150519_25/22010630_1432030294825_7tTUoY_JPG/22010630_user_191134.JPG" alt="로고사진입니다"></div>
+	<div id="navigation">
+		<div id="topmenu">
+		<ul>
+			<li><a href="http://www.seoulit.co.kr/?c=1">실업자과정</a></li>
+			<li><a href="http://www.seoulit.co.kr/?c=2">재직자과정</a></li>
+			<li><a href="http://www.seoulit.co.kr/?c=3">일반과정</a></li>
+           <li><a href="http://www.seoulit.co.kr/?c=6/12">교육원안내</a></li>
+			<li><a href="http://www.seoulit.co.kr/?c=5/9">교육과정상담</a></li>
+         </ul>
+		</div>
+	</div>
+    <div id="wrap">
+        <div id="contents">
+		<!-- -->
+			<div id="aside">
+
+				<h2>교육원안내</h2>
+				<ul>
+					<li><a class="active" href="http://www.seoulit.co.kr/?c=6/12">교육원안내</a></li>
+					<li><a href="http://www.seoulit.co.kr/?c=6/13">교직원안내</a></li>
+					<li><a href="http://www.seoulit.co.kr/?c=6/19">교육원 규정</a></li>
+					<li><a href="http://www.seoulit.co.kr/?c=6/14">시설현황</a></li>
+					<li><a href="http://www.seoulit.co.kr/?c=6/15">오시는길</a></li>
+				</ul>
+				<img src="subMenuBottomImgUpload1.jpg" alt="온라인상담 사진입니다."><br/>
+				<img src="subMenuBottomImgUpload2.jpg" alt="전화번호 055-753-3677">
+		        <a href="https://cafe.naver.com/seoulitacademy" target="_blank">
+		        <img id="cafe" src="cafe.jpg" alt="학원전용네이버카페 바로가기"></a>			
+				
+				<form action="http://www.google.com/search" method="GET">
+              <input name="q" type="search" placeholder="search" value="">
+              <span><a href="#">검색</a></span>
+            	</form>
+							
+			</div>
+			<div id="section">
+				<img src="subTitle.jpg" alt="교육원안내 사진입니다.">
+				<!--<h1>교육원안내</h1>-->
+				<!--<img id="logo2" src="logo2.jpg" alt="로고 두번째 사진입니다.">-->
+				<img  src="서울IT2.jpg" alt="서울IT교육센터 사진입니다.">
+				<h1> 본 훈련기관은 </h1>
+				<p>2003년도에 학원인가를 받아 일반인을 대상으로 자비 부담 정보 시스템 개발과정을<br/>
+				운영하던 중 2012년도에 처음으로 고용노동부 인가 실업자 교육과정을 실시하게 되었습니다.</p>
+				<p>실업자분들에 대한 직업능력개발훈련을 통하여 많은 분들을 높은 연봉으로 취업을 시키면서<br/>
+				큰 보람과 사명감을 느끼게 되었고 이에 직업훈련기관으로서의 집중력을 좀 더 높이고<br/>
+				교육환경을 개선하고자 2014년 11월에 고용노동부  직업능력훈련기관으로 시설변경 하였고<br/>
+				사업장 이름도 [서울IT교육센터직업전문학교]로 변경하였습니다.</p>
+				<p>아울러 기존에 임차하여 운영하던 시설도 건물을 구입하여 이전하고 훈련장비 및 기자재<br/>
+				그리고 교실 환경개선에도 많은 투자를 하여 교육생들이 오로지 직업훈련에만<br/>
+				집중할 수 있도록 노력하였습니다.</p>
+				<br/>
+				<p>본 건물 5층 및 7층을 훈련시설로 운영하고 있고 6층은 타지 수강생분들을 위하여 고시원을 설립<br/>
+				운영하고 있습니다. 2018년도에는 지하에 기업부설연구소도 설립하여 신기술 연구 및 수료생들의<br/>
+				벤처기업창업보육센터로 활용하고 있으며 누구든지 아이디어와 열정이 있다면 무상으로 사무실을<br/>
+				지원하고 있습니다.<br/>
+				이러한 노력을 바탕으로 기관을 설립한 이후로 교육생들이 해마다 증가하고 있습니다.<br/>
+				앞으로도 직업훈련기관의 기관장으로서 더욱 노력하여 갈수록 불안정해져 가고 있는 고용시장<br/>
+				환경에서 특정한 회사나 조직의 경제상황과 의사에 의해서 고용관계의 지속성이 결정되는 것이<br/>
+				아니라 전문적인 지식과 기술력을 바탕으로 고용관계를 자기 주도적으로 결정할 수 있는<br/>
+				IT 전문 기술 인력을 양성하는데 모든 노력을 다하고 있습니다.</p>
+			</div>
+		</div>
+    </div>
+	<div id="footer">
+		<div id="bottom">
+
+		본 사이트는 이메일주소를 무단수집하는 행위를 거부합니다. [법률 제 8486호]<br/>
+		대표 : 박영하  (660-300) 경상남도 진주시 가좌길74번길 8 (가좌동 639-1,혜람빌딩)  사업자번호 : 613-91-48507 <br/>
+		TEL : 055)753-3677  E-mail : young_ha@hotmail.com <br/>
+		Copyrights © 2021 www.seoulit.co.kr All Rights Reserved. (Excute Time 0.015)
+		
+
+		</div>
+	</div>
+</body>
+</html>

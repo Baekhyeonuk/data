@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+var ar = ["피자", "햄버거", "치킨", "짜장면", "탕수육"];
+
+$("button").click(function(){
+
+$.each(ar, function(index, item) {
+
+$("select").append("<option value=´" + index + "´>" + item + "</option>");
+
+});
+
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<select>
+</select>
+<br />
+<button>셀렉트에 추가하기</button>
+
+</body>
+</html>

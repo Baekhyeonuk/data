@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+  <script>
+
+// jQuery
+
+	$(document).ready(function(){
+	// window.onload = function() {
+	
+
+	$("button").click(function(){
+
+	//document.getElementById("h").style.backgroundColor = "yellow";
+	$("#h").css("background-color","yellow");
+	$("#h").css("color","blue");
+
+	});
+
+
+	//$("button").click(change);
+
+	});
+
+	function change() {
+
+	document.getElementById("h").style.backgroundColor = "yellow";
+	$("#h").hide();
+
+	}
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+<h2 id="h">This is a heading</h2>
+
+<p id="a" onclick="change();">This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<button>Click me to hide paragraphs</button>
+
+</body>
+
+</html>

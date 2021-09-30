@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.ancestors * {
+display: block;
+border: 2px solid #333333;
+color: #333333;
+padding: 5px;
+margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("span").parent().css({"color": "red", "border": "5px solid red"});
+});
+	// parents = 상위부모요소(조상)들 모두 다 찾기 
+	//  parent().parent(). 부모의 부모 위치
+
+
+</script>
+</head>
+<body>
+
+<div class="ancestors">
+<div style="width:500px;">div (great-grandparent)
+<ul>ul (grandparent)
+<li class="pr">li (direct parent)
+<span>span</span>
+</li>
+<li>li (direct parent)
+<span>span</span>
+</li>
+</ul>
+</div>
+
+<div style="width:500px;">div (grandparent)
+<p>p (direct parent)
+<span>span</span>
+</p>
+</div>
+</div>
+
+</body>
+</html>

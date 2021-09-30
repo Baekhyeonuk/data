@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>5월4일 과제 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+	var input1 = Number(prompt("국어성적을 입력하세요.",""));
+	var input2 = Number(prompt("영어성적을 입력하세요.",""));
+	var input3 = Number(prompt("수학성적을 입력하세요.",""));
+
+
+	var avg=(input1+input2+input3)/3;
+	
+	var grade;
+
+	if(avg >= 90)
+		grade="수";
+	if(avg >= 80 && avg < 90)
+		grade="우";
+	if(avg >= 70 && avg < 80)
+		grade="미";
+	if(avg >= 60 && avg < 70)
+		grade="양";
+	if(avg < 60)
+		grade="가";
+
+
+	switch(grade) {
+		case "수" :
+			alert("당신의 성적은 '수'입니다.");
+			break;	
+		case "우" :
+			alert("당신의 성적은 '우'입니다.");
+			break;	
+		case "미" :
+			alert("당신의 성적은 '미'입니다.");
+			break;	
+		case "양" :
+			alert("당신의 성적은 '양'입니다.");
+			break;	
+		default :
+			alert("당신의 성적은 '가'입니다.");
+			break;	
+	}
+
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

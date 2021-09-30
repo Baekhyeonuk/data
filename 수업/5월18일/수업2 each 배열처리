@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+var ar = ["수박", "메론", "망고", "바나나", "체리"];
+
+$.each(ar, function(i, a) {
+
+//document.write(a);
+document.write(ar[i]);
+document.write("<br />");
+
+});
+
+
+
+});
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+

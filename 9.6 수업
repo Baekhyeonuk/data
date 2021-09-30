@@ -1,0 +1,79 @@
+shop
+	cart
+	img
+	member
+	order
+	product
+	shop : setting.py(전체환경설정, 디렉토리, app추가)
+		urls.py (전체 app별로 url 파싱)
+		==> app.urls.py로 연결
+			
+	templates
+
+	공통설정파일(현재 shop) : conf, config, common
+
+
+DB : app_소문자클래스명( ex: product_product
+
+Product
+수량 : input type='number'
+img : input type='file'   blank=True  ==> 빈 입력양식 허용
+	upload_to='products/%Y/%m/%d' ==> app내에 img폴더 자동생성, 이미지업로드 날짜별로 파일만들어짐
+    def get_absolute_url(self):
+        return reverse('product:detail', args=[self.id])
+	==> 현재 id를 가지고 detail 페이지로 이동
+
+
+URL.py
+
+a href = " url 'product:detail' " ==> detail = url.py path의 name명 // url '어플명:url name'
+path('', ProdListView.as_view(), name='list') ==>   as_view = 클래스형식
+path('like', like, name='like') => like url
+
+view.py : urls.py에서 파싱된 결과와 매칭되어야함
+함수형 / 클래스형
+
+함수형 : 클래스형 외에 추가 기능 구현
+클래스형 : CRUD 완성 미리 정의 - list,detail,insert,update,delete
+
+클래스
+
+model = 모델 클래스 
+ex : model = Product ==> Product.objects.all() --> select * from product
+	queryset = Product.objects.filter(pro_display=1) => display=1인 것만 출력
+원래 모델명(소문자)_list.html 자동생성 --> 변경 template_name = 'product/list.html'
+ object_list로  객체반환
+
+Product.objects.all() ==> 전체 데이터 가져옴 object_list
+
+Product.objects.filter(조건들) => 결과가 1개 이상
+=> 없으면 빈 list 반환 ==> []
+Product.objects.get(id=product_id or pk) ==> 1개의 결과 object
+결과가 없으면 : keyerror ==> 예외처리해줘야함
+get_object_or_404(Product, id=product_id or pk) == 1개의 결과
+결과가 없으면 : 
+
+-------------------
+9.7
+
+세션 변수 회원 아이디
+
+장바구니 추가
+
+완전히 새롭게 추가 - insert  price, total, amount
+
+기준에 등록되어 있는 상품의 갯수를 + update
+
+update from cart set amount+=amount , price
+----
+member = select *from member where request.session['member_id']
+
+select * from cart where member_id=member.id
+==> member.cart_set.all
+
+원 테이블을 참고하고 있는 테이블도 자동으로 get
+객체 속성으로 할당
+
+장바구니정보 : cart , 외래키(product.id, member.id)
+상품정보 : product.pro_img, product.pro_name
+회원정보 : Mem.Mem_name

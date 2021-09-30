@@ -1,0 +1,31 @@
+create table usertbl1 select * from userTbl order by rand();
+
+show index from usertbl1;
+
+ANALYZE TABLE usertbl1; 
+
+DROP INDEX idx_userTbl_name ON usertbl1;
+
+SELECT table_name, constraint_name
+FROM information_schema.referential_constraints
+WHERE constraint_schema = 'testDB';
+
+CREATE TABLE Emp SELECT * FROM employees ORDER BY RAND();
+CREATE TABLE Emp_C SELECT * FROM employees ORDER BY RAND();
+CREATE TABLE Emp_Se SELECT * FROM employees ORDER BY RAND();
+
+ALTER TABLE Emp_C ADD PRIMARY KEY(emp_no);
+
+CREATE INDEX idx_emp_no ON Emp_Se (emp_no);
+ANALYZE TABLE Emp, Emp_C, Emp_Se;
+show table status like 'Emp_C';
+
+SHOW GLOBAL STATUS LIKE 'Innodb_pages_read';
+SELECT * FROM Emp WHERE emp_no = 100000;
+SELECT * FROM Emp_C WHERE emp_no = 100000;
+
+CREATE USER 'gra'@'localhost' IDENTIFIED BY 'Seoulit22@';
+GRANT ALL ON *.* TO 'gra'@'localhost' WITH GRANT OPTION;
+
+
+

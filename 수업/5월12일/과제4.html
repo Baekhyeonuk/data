@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제4</title>
+
+    <script>
+
+ 
+
+ var aaa = ["이순신", "안중근", "전봉준"];
+
+ // 체크박스를 클릭 하면 해당 체크박스의 value 값을 바로 옆의 텍스트 박스 배경색상으로 
+
+ // 텍스트 박스 value 값은 배열의 요소 값으로 순서대로 지정
+
+ // 예) 1번 체크박스를 클릭하면 1번 텍스트 박스의 배경은 노랑, 값은 이순신
+ 
+ // 풀이
+ function myF(id,a,b){
+
+	// 이벤트가 발생한 체크박스의 value값 : 색상
+	var color = id.value;
+	document.getElementById(a).style.backgroundColor = color;
+	document.getElementById(a).value = aaa[b];
+
+ }
+
+    </script>
+
+</head>
+
+<body>
+
+1. <input type="checkbox" value="yellow" onclick="myF(this,'a',0);" > 
+<input type="text" value="" id="a"><br />
+
+2. <input type="checkbox" value="green" onclick="myF(this,'b',1);"> 
+<input type="text" value="" id="b"><br />
+
+3. <input type="checkbox" value="pink" onclick="myF(this,'c',2);"> 
+<input type="text" value="" id="c"><br />
+
+</body>
+
+</html>
+

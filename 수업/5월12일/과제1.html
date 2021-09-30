@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제1</title>
+
+    <script>
+
+ // 텍스트 박스에 값을 입력하고 버튼을 클릭하면 ol 목록이 추가 되도록
+
+
+ function myfunction() {
+
+	var x = document.getElementById("name").value;
+	
+	var para = document.createElement("li");
+	var t = document.createTextNode(x);
+	para.appendChild(t);
+
+	document.getElementById("sb").appendChild(para);	
+ }
+// 풀이
+//  <li>id가 name인 value 값</li>
+ /*function myfunction(){
+	var x = document.getElementById("name").value;
+	var para = document.createElement("li");
+	var t = document.createTextNode(x);
+	para.appendChild(t);
+	document.getElementById("sb").appendChild(para);	
+
+ }
+*/
+
+
+    </script>
+
+</head>
+
+<body>
+
+ <h1>서울IT교육센터 학원 과정</h1>
+
+ <ol id="sb">
+
+  <li>java</li>
+
+
+ </ol>
+
+ <input type="text" id="name">
+
+ <input type="button" value="과정추가" id="b" onclick="myfunction();">
+
+</body>
+
+</html>
+
+

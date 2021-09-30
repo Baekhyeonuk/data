@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}
+Shopping Cart
+{% endblock %}
+
+{% block content %}
+{{ cart.cart }}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Remove</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_list %}
+				{% with product=item.product %}
+                <tr>
+                    <th scope="row">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{product.pro_img.url}}" class="img-thumbnail" width="100">
+                        </a>
+                    </th>
+                    <td>{{product.pro_name}}</td>
+                    <td>{{item.amount}}</td>
+                    <td><a href="{% url 'cart:cart_remove' item.id %}">Remove</a></td>
+                    <td class="num">{{product.pro_price|intcomma}}</td>
+                    <td class="num">{{item.total|intcomma}}</td>
+                </tr>
+				{% endwith %}
+            {% endfor %}
+		<tr class="total">
+            <td>Total</td>
+            <td colspan="4"></td>
+            <td class="num">{{cart_total|intcomma}}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

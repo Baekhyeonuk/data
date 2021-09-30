@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<style>
+/*ul li { list-style-type:none; }*/
+</style>
+<script>
+$(document).ready(function(){
+
+$("button").click(function(){
+
+$("li").each(function(n){
+
+$(this).clone().prepend(n+1 + ". ").appendTo("ul");
+	// if(n ==1) return false;
+
+});
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<button>clone the value of each list item</button>
+
+<ol>
+<li>Coffee</li>
+<li>Milk</li>
+<li>Soda</li>
+</ol>
+
+<ul>
+</ul>
+</body>
+</html>

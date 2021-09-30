@@ -1,0 +1,90 @@
+1) 구매내역이 없는 회원들만 조회하여 아이디, 이름, mobile1, mobile2 를 조회하시오
+전화번호의 형식은 010-2345-0987 로 표시하시오
+
+​select u.userID, u.Name, CONCAT_WS("-", u.mobile1, LEFT(u.mobile2, 3), RIGHT(mobile2, 4)) 
+from userTbl as u
+LEFT JOIN buyTbl as b
+on u.userID=b.userID
+where b.prodName IS NULL
+
+
+
+2) 주소가 서울이 아닌 사용자 중에서 구매내역이 없은 사용자의 아이디, 이름 , 주소를 조회
+
+select u.userID, u.Name, u.addr
+from userTbl as u
+LEFT JOIN buyTbl as b
+on u.userID=b.userID
+where b.prodName IS NULL AND u.addr<>'서울'
+​
+
+3) 물품의 재고 수량이 20이상인 물품을 구매한 사용자의 아이디, 이름, 주소를 조회
+
+select u.userID,u.Name,u.addr
+from userTbl as u
+left join buyTbl as b
+on u.userID=b.userID
+where b.prodName = ALL(select b.prodName from prodTbl where prodStock>=20);
+
+select u.userID,u.Name,u.addr
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+join prodTbl as p
+on b.prodName=p.prodName
+where p.prodStock>=20;
+
+4) 구매횟수가 3번 이상인 회원들의 아이디, 이름, 주소, 구매횟수를 뷰로 생성하시오 
+
+CREATE VIEW v_countTbl
+AS
+select u.userID,u.Name,u.addr,COUNT(b.userID)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by b.userID
+having COUNT(b.userID)>=3
+
+drop view v_countTbl;
+​
+
+5) 물품의 제조사가 "LG전자" 인 물건을 구매한 사용자 중에서 해당 사용자들의  평균 구매액이 500원 이상인 사용자의 
+아이디, 이름, 평균 구매액을 조회 하시오.
+
+select u.userID,u.Name,AVG(b.price*b.amount),SUM(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.prodName = ANY(select p.prodName from prodTbl as p where p.prodCom='LG전자')
+group by b.userID
+having AVG(b.price*b.amount)>=500 
+
+select b.userID
+from buyTbl b,prodTbl p 
+where b.prodName=p.prodName AND p.prodCom='LG전자'
+
+select u.userID,u.Name,AVG(b.price*b.amount)
+from userTbl u,buyTbl b
+where u.userID=b.userID AND b.userID=ANY(select b.userID
+from buyTbl b,prodTbl p 
+where b.prodName=p.prodName AND p.prodCom='LG전자')
+group by b.userID
+
+
+풀이.
+select u.userID,u.Name,AVG(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.userID = ANY(select b.userID 
+from buyTbl b
+join prodTbl p
+on b.prodName=p.prodName
+where p.prodCom='LG전자')
+group by b.userID
+(서브쿼리)
+select b.userID 
+from buyTbl b
+join prodTbl p
+on b.prodName=p.prodName
+where p.prodCom='LG전자'

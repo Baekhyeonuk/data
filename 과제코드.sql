@@ -1,0 +1,139 @@
+CREATE TABLE subTbl (
+
+ subID CHAR(8) NOT NULL PRIMARY KEY,
+
+ subName VARCHAR(20) NOT NULL,
+
+ sudTel VARCHAR(12)
+
+);
+
+INSERT INTO subTbl VALUES('C1111', '컴퓨터공학과','055-123-1234');
+
+INSERT INTO subTbl VALUES('C2222', '전자공학과','055-123-1235');
+
+INSERT INTO subTbl VALUES('C3333', '기계공학과','055-123-1236');
+
+INSERT INTO subTbl VALUES('A1111', '법학과','055-123-1237');
+
+INSERT INTO subTbl VALUES('B1111', '체육학과','055-123-1238');
+
+CREATE TABLE stdTbl (
+
+ stdID CHAR(10) NOT NULL PRIMARY KEY,
+
+ stdName VARCHAR(20) NOT NULL,
+
+ stdTel VARCHAR(15),
+
+ stdAddr VARCHAR(50),
+
+ subID CHAR(10) NOT NULL,
+
+ FOREIGN KEY (subID)  REFERENCES subTbl(subID) ON UPDATE CASCADE
+
+);
+
+​
+
+CREATE UNIQUE INDEX idx_stdTbl_tel 
+
+   ON stdTbl (stdTel);
+
+ANALYZE TABLE stdTbl;
+
+INSERT INTO stdTbl VALUES('11111', '홍길동','010-1234-5678','제주도 서귀포시 123', 'C1111');
+
+INSERT INTO stdTbl VALUES('22222', '이순신','010-1234-5671','강원도 철원군 123', 'C2222');
+
+INSERT INTO stdTbl VALUES('33333', '손흥민','010-1234-5672','경남 진주시 123', 'B1111');
+
+INSERT INTO stdTbl VALUES('44444', '류현진','010-1234-0000','미국', 'B1111');
+
+INSERT INTO stdTbl VALUES('55555', '송중기','010-1234-1111','서울 서초구 223', 'B1111');
+
+​
+
+ALTER TABLE stdTbl
+
+CHANGE COLUMN stdTel stdTel VARCHAR(15);
+
+CREATE TABLE couTbl (
+
+ couID CHAR(8) NOT NULL PRIMARY KEY,
+
+ couName VARCHAR(20) NOT NULL,
+
+ couSummary TEXT
+
+);
+
+INSERT INTO couTbl VALUES('AAAAA', '오라클','개어려움');
+
+INSERT INTO couTbl VALUES('BBBBB', 'MySQL','어려움');
+
+INSERT INTO couTbl VALUES('CCCCC', '국가론','플라톤');
+
+INSERT INTO couTbl VALUES('DDDDD', '인공지능보안','박새롬');
+
+INSERT INTO couTbl VALUES('EEEEE', '건강한생활','');
+
+​
+
+CREATE TABLE appTbl (
+
+ appID VARCHAR(50) NOT NULL PRIMARY KEY,
+
+ stdID CHAR(10) NOT NULL,
+
+ couID CHAR(8) NOT NULL,
+
+ appDate DATE NOT NULL,
+
+ FOREIGN KEY (stdID)  REFERENCES stdTbl(stdID) ON UPDATE CASCADE,
+
+ FOREIGN KEY (couID)  REFERENCES couTbl(couID)
+
+ ON UPDATE CASCADE
+
+);
+
+​
+
+INSERT INTO appTbl VALUES(CONCAT(YEAR(NOW()), MONTH(NOW()), DAY(NOW()), HOUR(NOW()),MINUTE(NOW()),SECOND(NOW())), '11111','AAAAA', CURDATE());
+
+INSERT INTO appTbl VALUES(CONCAT(YEAR(NOW()), MONTH(NOW()), DAY(NOW()), HOUR(NOW()),MINUTE(NOW()),SECOND(NOW())), '11111','EEEEE', CURDATE());
+
+INSERT INTO appTbl VALUES(CONCAT(YEAR(NOW()), MONTH(NOW()), DAY(NOW()), HOUR(NOW()),MINUTE(NOW()),SECOND(NOW())), '22222','EEEEE', CURDATE());
+
+​
+
+CREATE UNIQUE INDEX idx_appTbl_name
+
+ ON appTbl (stdID, couID);
+
+ANALYZE TABLE appTbl;
+
+SHOW TABLE STATUS LIKE 'apptbl';
+
+==> 같은 학생이 같은 과목 신청 불가하게 설정
+
+​
+
+INSERT INTO appTbl VALUES(CONCAT(YEAR(NOW()), MONTH(NOW()), DAY(NOW()), HOUR(NOW()),MINUTE(NOW()),SECOND(NOW())), '11111','DDDDD', CURDATE());
+
+​
+
+ALTER TABLE appTbl  DROP PRIMARY KEY (appID);
+
+ALTER TABLE appTbl
+
+CHANGE COLUMN appID appID VARCHAR(100) PRIMARY KEY;
+
+​
+
+SELECT table_name, constraint_name
+
+    FROM information_schema.referential_constraints
+
+    WHERE constraint_schema = 'testdb';

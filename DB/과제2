@@ -1,0 +1,80 @@
+1) 아이디별 합계금액이 1000원 이상인 사람들의 아이디, 이름, 주소 총구매액을 총구매액 오름차순 정렬
+userTbl u userId,Name,addr 
+buyTbl b SUM(b.price*b.amount)
+
+select u.userID,u.Name,u.addr,SUM(b.price*b.amount) as '총구매액' 
+from userTbl as u 
+join buyTbl as b 
+on u.userID=b.userID 
+GROUP BY b.userID 
+HAVING SUM(b.price*b.amount)>=1000
+ORDER BY SUM(b.price*b.amount) ASC;
+
+2) 아이디별 모니터를 구매한 사용자의 아이디, 이름, 총구매액을 출력하고 총 구매액 내림차순 정렬
+userTbl u userID,Name
+buyTbl b SUM(b.price*b.amount)
+
+select u.userID,u.Name,SUM(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.prodName='모니터'
+group by b.userID
+ORDER BY SUM(b.price*b.amount) DESC
+
+3) 아이디별로 구매횟수(count) 가 3번 이상인 회원들의 아이디, 이름, 주소를 조회
+userTbl u userID,Name,addr / COUNT(userID)
+
+select u.userID,u.Name,u.addr,COUNT(b.userID)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by b.userID
+having COUNT(b.userID)>=3
+
+4) 아이디별로 운동화를 구매한 사람의 평균 구매액 과 아이디, 이름, 주소를 조회
+userTbl u userID,Name,addr / AVG(b.price*b.amount)
+
+select AVG(b.price*b.amount),u.userID,u.Name,u.addr
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.prodName='운동화'
+group by b.userID
+
+5) 아이디별로 운동화를 구매한 사람들 중에서 총 구매액이 50원 이상인 사용자 아이디, 이름, 평균구매액 출력, 사용자 이름 오름차순으로 정렬
+userTbl u userID,Name / AVG(b.price*b.amount)
+​
+select u.userID,u.Name,AVG(b.price*b.amount)
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.prodName='운동화' 
+group by b.userID
+having SUM(b.price*b.amount)>=50
+order by Name ASC
+
+6) 아이디별로 평균 구매금액이 100 에서 500 사이의 사용자의 평균 구매액, 아이디, 이름, 주소 출력
+평균 구매액이 큰 금액부터 정렬
+userTbl u userId,Name,addr / AVG(b.price*b.amount)
+
+select AVG(b.price*b.amount),u.userId,u.Name,u.addr
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+group by b.userID
+having AVG(b.price*b.amount)>=100 AND AVG(b.price*b.amount)<=500
+order by AVG(b.price*b.amount) DESC
+
+​
+
+7) 상품별로  총 구매금액이 1000원보다 큰 상품의 총 구매액, 상품명, 제조사 조회하고 상품명 오름차순 정렬
+buyTbl b prodName / prodTbl p prodCom / SUM(b.price*b.amount) 
+
+select SUM(b.price*b.amount),p.prodName,p.prodCom
+from prodTbl as p
+join buyTbl as b
+on p.prodName=b.prodName
+group by b.prodName
+having SUM(b.price*b.amount)>1000
+order by prodName ASC

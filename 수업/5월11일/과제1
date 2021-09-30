@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제1</title>
+
+ <meta charset="UTF-8">
+
+ <style>
+
+ div {
+
+  width:300px;
+
+  height:150px;
+
+  background-color:#FFFF00;
+
+  font-size:20px;
+
+ }
+
+ </style>
+
+    <script>
+
+ function myFunction() {
+
+  //버튼을 클릭하면 myText의 내용이 myText2의 값에 할당이 될수 있도록
+
+  //myText2 의 배경 색상을 yellow 로
+
+  // 남성 체크가 되도록
+	var x2 = document.getElementById("myForm").elements[0].value;
+		//document.getElementById("demo").innerHTML = x2;
+	document.getElementById("myForm").elements[1].value = x2;
+	document.getElementById("myText2").style.backgroundColor = "yellow";
+
+	document.getElementById("ck1").checked = true;
+
+    /*풀이var x2 = document.getElementById("myText").value;
+	document.getElementById("myText2").value = x;
+	document.getElementById("myText2").style.backgroundColor = "yellow";
+	document.getElementById("ck1").checked = true;
+	*/
+ }
+
+    </script>
+
+</head>
+
+<body>
+
+	<form id="myForm" name="test" method="post" action="test.html">
+
+ 		<input type="text" name="mytest" id="myText" value="홍길동">
+
+		<input type="text" name="mytest2" id="myText2" value="박지성">
+
+ 		<input type="checkbox" id="ck1"> 남성 <input type="checkbox" id="ck2"> 여성
+
+	</form>
+
+	<button onclick="myFunction()">버튼을 눌러보세용</button>
+	<div id="demo"></div>
+
+
+</body>
+
+</html>
+

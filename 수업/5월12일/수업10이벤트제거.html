@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<script>
+
+window.onload = function(){ 
+document.getElementById("test").style.color="red";
+
+// 하나의 이벤트에 여러개의 이벤트 리스너 연결
+
+var aaa = document.getElementById("test");
+
+// 표준 이벤트 모델
+// 구버전 익스 플로어 적용 안됨
+
+aaa.addEventListener("click",click1);
+
+aaa.addEventListener("click",click2);
+
+aaa.addEventListener("mouseover",click3);
+
+function click1() {
+
+document.getElementById("test").style.fontSize = "50px";
+}
+
+function click2() {
+
+document.getElementById("test").style.color = "blue";
+
+}
+
+function click3() {
+
+document.getElementById("test").style.backgroundColor = "yellow";
+
+}
+
+// 추가되었던 이벤트 리스너 제거
+document.getElementById("del").onclick = function() {
+
+aaa.removeEventListener("click",click1);
+aaa.removeEventListener("click",click2);
+
+}
+
+};
+
+
+</script>
+</head>
+<body>
+<div id="abc">
+<h1 id="test">클릭하세용~~~</h1>
+</div>
+<button id="del">이벤트제거</button>
+</body>
+</html>

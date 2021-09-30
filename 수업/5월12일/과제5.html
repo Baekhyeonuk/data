@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제5</title>
+
+    <script>
+
+  // 사용자가 옵션을 선택하면 해당 옵션의 value 주소로 이동할 수 있도록
+
+  // locatiom.href를 이용
+/*function changeLink() {
+  var pagelist = document.getElementById("url");
+  var selpage= pagelist.options[pagelist.selectedIndex].value;
+	//location.href;
+
+	location.replace(selpage);
+}
+*/
+
+ // 풀이
+ function changeLink(){
+
+  var pagelist = document.getElementById("url");
+  location.href = pagelist.options[pagelist.selectedIndex].value;
+  //location.replace(pagelist.options[pagelist.selectedIndex].value;);
+
+ }
+
+
+    </script>
+
+</head>
+
+<body>
+
+<select id="url" onchange="changeLink()">
+
+ <option value="">선택하세요</option>
+
+ <option value="http://www.daum.net">다음</option>
+
+ <option value="http://www.naver.com">네이버</option>
+
+ <option value="http://www.google.com">구글</option>
+
+</select> 
+
+</body>
+
+</html>
+

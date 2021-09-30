@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>인라인 이벤트 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+	// 인라인 이벤트 연결
+	
+	function myF(id){
+		var aaa = document.getElementById("test");
+		
+		alert(id.tagName);
+		aaa.style.backgroundColor="yellow";
+		
+		// 인라인 이벤트 모델에서는 this를 인수로 활용
+	}
+
+
+  </script>
+
+
+</head>
+<body>
+<span id="test" onclick="myF(this);">클릭하세요~  </span>
+
+</body>
+
+</html>

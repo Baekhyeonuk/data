@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+
+	// Math 객체 : 생성자 함수 없음
+/*
+	var val = 324.6;
+
+	document.write("Math.ceil(val) : " + Math.ceil(val) + "<br />");
+	document.write("Math.floor(val) : " + Math.floor(val) + "<br />");
+	document.write("Math.round(val) : " + Math.round(val) + "<br />");
+*/
+/*
+	document.write(Math.random());
+	// 0.0~0.9
+
+	document.write("결과:"+Math.ceil((Math.random())*100)+"<br/>");
+*/
+
+	//Date객체 : 실행되는 시점에 
+/*
+	var dt = new Date();
+	//  인수 값이 없을 경우 현재 날짜와 시간 출력
+
+	document.write(dt+"<br/>");
+*/
+/*
+	var dt = new Date(2021,4,10);
+	//  월은 0부터 시작, 월-1로 세팅 
+	document.write(dt+"<br/>");
+*/
+/*
+	var dt = new Date();
+
+	document.write(dt.getFullYear()+"년<br/>");
+	document.write(dt.getMonth()+1+"월<br/>");
+	document.write(dt.getDate()+"일<br/>");
+
+	var week = ["일","월","화","수","목","금","토"];
+	document.write(week[dt.getDay()]+"요일<br/>");
+	// 요일은 0부터 시작  , 배열을 통해서 표현하면 됨
+
+	document.write(dt.getTime());
+	// getTime : 1970넌 1월 1일 자정부터 지난 밀리 초  반환    1000*60*60*24 =  86400000초(1일)
+	// 2021년 1월 1일 부터 현재까지 몇일 지났는지? 
+*/
+/*
+	// 기준날짜 - 오늘날짜     디데이 계산
+	var y = Number(prompt("년도입력", ""));
+	var m = Number(prompt("월입력", ""));
+	var d = Number(prompt("일입력", ""));
+
+	var tday = new Date();
+	var dday = new Date(y, m-1, d);
+
+	var term = dday.getTime() - tday.getTime();
+
+	term = Math.ceil(term / (1000 * 60 * 60 * 24));
+
+	document.write(dday.getFullYear() + "년 ");
+	document.write(dday.getMonth()+1 + "월 ");
+	document.write(dday.getDate() + "일까지 ");
+	document.write(term + "일 남았습니다.");
+*/
+/*
+	//  프로토타입
+
+	function Ramen(n,s) {
+
+	 this.noodle = n;
+	 this.spice = s;
+
+		this.cook = function() {
+
+		return this.noodle + this.spice;
+
+		};
+
+	}
+
+	// 인스턴스 , 객체 생성
+
+	var sin = new Ramen(100,100);
+	var jin = new Ramen(100,50);
+
+	Ramen.prototype.pay = function() {
+
+	return this.noodle * this.spice;
+
+	};
+
+	var sin = new Ramen(100,100);
+
+	for(var key in jin) {
+
+	document.write(key + " : " +jin[key]);
+	document.write("<br />");
+
+	}
+
+	alert(sin.pay());
+*/
+/*
+	function A() { }
+	//빈 프로토타입 객체에 printA 메서드 추가
+	A.prototype.printA = function () {
+	alert("A");
+	}
+
+	//B() 함수 
+	function B() { }
+
+	B.prototype = new A();
+	//프로토타입 객체에 printB 메서드 추가
+	B.prototype.printB = function () { 
+	alert("B");
+	}
+
+	//C() 함수 
+	function C() { }
+
+	C.prototype = new B();
+	//프로토타입 객체에 printC 메서드 추가
+	C.prototype.printC = function () {
+	alert("C");
+	}
+
+	//C() 생성자 함수를 통해 o 객체 생성 
+	var o = new C();
+
+	o.printA();
+	o.printB();
+	o.printC();
+*/
+	// 브라우저 객체
+	// 윈도우 객체
+
+//	window.open("http://www.naver.com");
+	// 새창을 여는 매서드   기존 링크를 해도 되고, 폴더 내 html파일 도 열기 가능
+
+	window.open("popup.html","","left=100, top=100, width=500, height=400");
+	// window.close - 새창 닫기  ,  window.opener.clos - 부모창  닫기
+	// window.print
+
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+	
+
+
+</body>
+
+</html>

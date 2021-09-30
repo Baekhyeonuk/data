@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>표준이벤트모델</title>
+<script>
+
+window.onload = function(){ 
+document.getElementById("test").style.color="red";
+
+// 하나의 이벤트에 여러개의 이벤트 리스너 연결
+
+var aaa = document.getElementById("test");
+
+// 표준 이벤트 모델
+// 구버전 익스 플로어 적용 안됨
+aaa.addEventListener("click",function() {
+
+alert(this.tagName);
+
+});
+
+aaa.addEventListener("click",function() {
+
+document.getElementById("test").style.color = "blue";
+
+});
+
+// 추가되었던 이벤트 리스너 제거
+//aaa.removeEventListener("click",);
+
+//}
+
+};
+
+
+</script>
+</head>
+<body>
+<div id="abc">
+<h1 id="test">클릭하세용~~~</h1>
+</div>
+<button id="del" onclick="myF();">이벤트제거</button>
+</body>
+</html>

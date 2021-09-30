@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>과제1</title>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <script>
+
+ $(document).ready(function(){
+
+  // 버튼을 클릭하면 href 가 http://www.naver.com 인 텍스트의 색상을 red로
+
+  // 배경 색상은 yellow,  글자 크기는 40px
+ $("button").click(function(){
+	//$("a:first").css("color":"red","background-color":"yellow","font-size":"40px");
+$("a:first").css({"color": "red", "background-color": "yellow","font-size": "40px"});  
+});
+ });
+
+ </script>
+
+</head>
+
+<body>
+
+<a href="http://www.naver.com">네이버</a>
+
+<a href="http://www.seoulit.co.kr">서울IT교육센터</a>
+
+<button>클릭하세요</button>
+
+</body>
+
+</html>

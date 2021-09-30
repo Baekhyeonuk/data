@@ -1,0 +1,14 @@
+
+리눅스 mysql 설치 된 경우
+
+(./mysql -u root -p)
+
+<mysql 접속 경로>
+
+ssh 아이디@아이디.cafe24.com
+비밀번호 입력
+
+mysql -u 아이디 -p
+
+use 아이디
+

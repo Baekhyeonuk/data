@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Property Basic</title>
+<style>
+#box1 {
+background-color: red;
+border: 2px solid black;
+width: 300px;
+padding: 10px 5px 20px 15px
+}
+
+#box2 {
+
+background-color: #FFFF00;
+border: 2px solid black;
+margin: 10px 5px 20px 15px;
+}
+
+span {
+border: 2px solid black;
+/*margin-top: 10px;
+margin-right: 5px;
+margin-bottom: 20px;
+margin-left: 15px;*/
+display:inline-block;
+margin: 10px 5px 20px 15px;
+width:200px;
+padding: 10px 5px 20px 15px
+} 
+
+/* margin 박스 밖 여백      픽셀순서 : 위 오 아 왼(시계방향)  , margin:0 auto;(위아래여백x, 좌우 여백 균등하게)
+	padding : 박스 안 여백
+	border-radius:픽셀 (테두리 모서리 둥글게)
+	background-image:url(""),url("");  (배경사진 - 크기만큼 채워짐) 두개연속쓰면 겹쳐서 가능
+	background-repeat:no-repeat; (배경사진 반복x) repeat-x(가로패턴)
+	background-size:px  px,px px(두개일경우 ,로 구분) 넓이,높이
+	background-attachment: fixed;(scroll;)배경에  글자 많을때
+	background-position:수평위치  수직위치; 
+							left bottom;(왼쪽 아래)
+							100px  100px /  center center
+
+*/
+</style>
+</head>
+<body>
+
+<div id="box1">
+	<div id="box2">
+		안쪽박스
+	</div>
+</div><span>인라인형식1</span><span>인라인형식2</span>
+
+	
+</body>
+</html>

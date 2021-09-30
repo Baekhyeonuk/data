@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>4월 28일수업 </title>
+  <meta charset="UTF-8">
+  <style>
+  </style>
+</head>
+<body>
+<!--이미지 태그 src는 파일명,
+  alt는 사진없을때 나오는 글자(시각장애인 설명용으로도  사용) , width너비 height 높이-->
+	<img src="아이유.jpg" alt="대체글자" />
+<!--오디오  태그   source는 대체 확장자-->
+	<audio src="파일명" controls="controls" autoplay="autoplay"></audio>
+<!--크롬 정책으로 자동재생은 중지됨-->
+
+<!--비디오 태그 너비,높이 조절가능-->
+	<video src="파일명.mp4" controls="controls" width="200" height="100">
+		<source src="파일명.mp4" type="video/mp4"/>
+		<source src="파일명.avi" type="video/avi"/>
+	</video>
+
+<!--입력양식 : <form></form>--> 
+
+	<form method="전송방식" action="파일명">
+	<!-- method : 전송방식 get(기본),post로 가능/ method가 없다면 기본적으로 get으로됨    action:파일명-->
+	<fieldset>
+	<legend>필수입력</legend>
+	<input type="text" value="홍길동"><br/>
+	<input type="button" value="클릭" onclick="alert('오류');"><br/>
+	오늘저녁안주는? 치킨<input type="checkbox" name="ch1">피자<input type="checkbox" name="ch1"><br/>
+	</fieldset>
+	<br/>
+	<fieldset>
+	<legend>선택입력</legend>
+	<input type="file"><br/>
+	<input type="hidden" value="1234"><br/>
+	<input type="image" src="버튼이미지파일명"><br/>
+	<input type="password"><br/>
+	여성<input type="radio" name="r1">남성<input type="radio" name="r1"><br/>
+	<input type="reset"><br/>
+	<input type="submit" value="값을보내기"><br/>
+	</fieldset>
+	<br/>
+
+	<!--input : type : 창종류  text(기본), value:필수적으로 입력되는 속성, button:클릭하세요(예시), submit:값  보내기는 action경로에 보내게됨
+         fieldset : 분할해주는속성, legend:필드에 설명해줌,보기편해짐  -->
+
+	<input type="date"><br/>
+	<input type="color"><br/>
+	<input type="range"><br/>
+	<!--html5버전에 적용 : date,color,range-->
+
+	<textarea rows="20" cols="20"></textarea>
+	<!--textarea:텍스트가 많은경우 사용-->
+
+	<select>
+	 <option value="1">바나나</option>
+	 <option value="2">자몽</option>
+	 <option value="3">오렌지</option>
+	</select>
+	<!-- 선택입력양식 : value값이 전송됨 , <select multiple="multiple">속성도 한번씩 사용-->
+
+
+	</form>
+
+
+<!--글자태그 <h1~6> <p> <a>
+
+<div> 블록형식으로 공간분할
+<span> 인라인형식으로 공간분할
+
+인라인 형식 :  줄바꿈 없이 한줄에 표현
+블록 형식 :  줄바꿈  존재-->
+	<div>첫번째</div>
+	<div>두번째</div>
+	<span>1번째</span><span>2번째</span>
+
+</body>
+
+</html>

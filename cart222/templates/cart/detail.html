@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}
+Shopping Cart
+{% endblock %}
+
+{% block content %}
+<p>{{ member.mem_name }}님의 장바구니 정보입니다.</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Remove</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Price</th>
+				<th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_list %}
+				{% with product=item.product %}
+                <tr>
+                    <th scope="row">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{product.pro_img.url}}" class="img-thumbnail" width="100">
+                        </a>
+                    </th>
+                    <td>{{product.pro_name}}</td>
+                    <td>{{item.amount}}</td>
+                    <td><a href="{% url 'cart:cart_remove' item.id %}">Remove</a></td>
+                    <td class="num">{{product.pro_price|intcomma}}</td>
+                    <td class="num">{{item.total|intcomma}}</td>
+					<td class="num">
+					<form action="{% url 'cart:cart_add' product_id=product.id%}" method="post">
+                {{add_to_cart}}
+                {% csrf_token %}
+            <input type="submit" class="btn btn-primary btn-sm" value="수정">
+            </form>
+					</td>
+                </tr>
+				{% endwith %}
+            {% endfor %}
+		<tr class="total">
+            <td>Total</td>
+            <td colspan="5"></td>
+            <td class="num">{{cart_total|intcomma}}</td>
+        </tr>
+        </tbody>
+    </table>
+	<a href="/product/">쇼핑 계속하기</a>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>과제4</title>
+  <meta charset="UTF-8">
+  <style>
+
+	
+  </style>
+  
+  <script>
+
+
+
+
+	function h(i,j){
+		document.write("<table border=1>");
+			var a; 	
+			for(var a=1; a<i+1; a++){
+				document.write("<tr>");
+		
+ 	 		 for(var b=1; b<j+1; b++){ 
+
+				  document.write("<td>"+i+"행"+j+"열</td>");
+		
+			  }
+	  
+				document.write("</tr>");	
+			}
+		document.write("</table>");
+	}
+	
+
+	var aa= Number(prompt("행",""));
+	
+	var ee= Number(prompt("열",""));
+	h(aa,ee);
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

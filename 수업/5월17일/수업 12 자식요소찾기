@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.descendants * {
+display: block;
+border: 2px solid #333333;
+color: #333333;
+padding: 5px;
+margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+$("ul").children().css({"color": "blue", "border": "2px solid blue"});
+//$("ul").children("li:first").css({"color": "red", "border": "2px solid red"});
+// 첫 ul의 첫 li
+//$("ul").children("li:first-child").css({"color": "red", "border": "2px solid red"});
+// 각각 ul 의 첫 li 들
+});
+</script>
+</head>
+<body>
+
+<body class="descendants">body (great-grandparent)
+<div style="width:500px;">div (grandparent)
+<ul>ul1 (direct parent)
+<li>li (child)
+<span>span (grandchild)</span>
+</li>
+<li>li2 (child)
+<span>span (grandchild)</span>
+</li>
+</ul>
+
+<ul>ul2 (direct parent)
+<li>li (child)
+<span>span (grandchild)</span>
+</li>
+<li>li2 (child)
+<span>span (grandchild)</span>
+</li>
+</ul>
+</div>
+</body>
+
+</html>

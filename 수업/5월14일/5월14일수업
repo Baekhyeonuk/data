@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트</title>
+<style>
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+
+<script>
+
+	$(document).ready(function(){
+
+	$("#btn1").click(function(){
+	alert("Text: " + $("p").text());
+	});
+
+	$("#btn2").click(function(){
+	alert("HTML: " + $("p").html());
+	// 첫번째 요소의 html 포함 텍스트 반환
+	});
+
+	});
+
+</script>
+</head>
+<body>
+
+<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+<p>This is some <b>bold</b></p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+</body>
+</html>

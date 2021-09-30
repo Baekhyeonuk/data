@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+$("button").click(function(){
+alert($("li").length);
+});
+
+});
+</script>
+</head>
+<body>
+
+<button>li 요소의 갯수 구하기</button>
+
+<ul>
+<li>Coffee</li>
+<li>Milk</li>
+<li>Soda</li>
+</ul>
+
+</body>
+</html>

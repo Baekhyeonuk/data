@@ -1,0 +1,8 @@
+
+member_id=mem_id
+
+cart_item = {}
+
+상품아이디, 갯수, 회원아이디
+
+cart = {'상품아이디'{'갯수':10, 'member_id':test}}

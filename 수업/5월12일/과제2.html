@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제2</title>
+
+    <script>
+
+ // 숫자 값 t1, t2 에 입력하고 결과보기를 클릭하면
+
+ // 합을 구한뒤 t3에 전달하고 t3 배경색상 변경하기
+
+ function myfunction() {
+
+	var a = document.getElementById("t1").value;
+	var b = document.getElementById("t2").value;
+	var hap = Number(a)+Number(b);
+	var box =  document.getElementById("t3")
+	document.getElementById("t3").value = hap;
+	box.style.backgroundColor="yellow";
+ 
+
+ }
+
+    </script>
+
+</head>
+
+<body>
+
+ <input type="text" id="t1"><br />
+
+ <input type="text" id="t2"><br />
+
+ <input type="button" value="결과보기" id="b" onclick="myfunction();"><br />
+
+ <input type="text" id="t3">
+
+</body>
+
+</html>

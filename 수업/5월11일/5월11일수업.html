@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+	// 윈도우 객체 
+
+	// 변수pop 에 사이즈 300 x 300 의 팝업창을 담는다.
+/*
+	var pop = window.open("","test","width=300, height=300");
+
+	pop.moveTo(50,50); // 절대적위치 0,0 지정
+
+	var intervalID = setInterval(function(){ // 1초마다 반복 실행
+
+		pop.moveBy(50,50); // 왼쪽, 아래쪽으로 50씩 이동한다.
+
+	},1000);
+
+	setTimeout(function(){ // 5초뒤 한번 실행
+
+		clearInterval(intervalID); // 반복실행되던 setInterval() 을 정지 시킨다.
+		pop.close();
+
+	},5000)
+*/
+/*
+	var oPen = window.open("popup2.html", "", "width=500, height=300");
+
+	oPen.document.write("<h1>window 리턴!!!</h1>");
+	// 부모창에서 새창에 접근
+
+	// location 객체
+
+	document.write("location.href : " + decodeURIComponent(location.href));
+	// 현재 사용자가 접속한 url 페이지를 불러옴
+	//document.write("location.href : " + location.href);
+
+	location.replace("http://www.naver.com");
+	// 해당 페이지로 자동 이동
+*/
+/*
+	// history 객체
+
+	history.back(); // 이전 페이지로 가기
+	//history.go(-1);
+*/
+/*
+	// navigator 객체
+
+	var output = "";
+	for (var key in navigator) {
+	output += "●" + key + ": " + navigator[key] + "<br />";
+	}	
+	document.write(output);
+*/
+
+	// 문서객체 [DOM]
+
+	//<a href=""> 서울 it </a>
+	//<요소노드. 속성노드> 텍스트 노드</요소>
+
+	window.onload = function () {
+
+	// 요소(태그) 노드 생성
+	var para = document.createElement("h1");
+	// 텍스트 노드 생성
+	var t = document.createTextNode("텍스트노드");
+
+	//<h1>텍스트노드</h1> 연결하기
+
+	para.appendChild(t);
+	// body 요소 내부의 마지막에 추가
+	document.body.appendChild(para);
+
+
+
+	};
+
+
+
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

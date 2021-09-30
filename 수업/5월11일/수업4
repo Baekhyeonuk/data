@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<style>
+	span { color:red; }
+</style>
+<script>
+
+	// inner HTML
+
+	function aaa() {
+	var x = document.getElementById("myP").innerHTML;
+
+	//alert(x);
+	document.getElementById("demo").innerHTML = x;
+	}
+</script>
+</head>
+<body>
+	<button onclick="aaa();">클릭하세요</button>
+	<p id="myP"><span>첫째 단락</span></p>
+	<p id="demo"></p>
+</body>
+</html>

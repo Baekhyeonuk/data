@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <title>과제1</title>
+
+ <style>
+
+ </style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+ $(document).ready(function(){
+
+ // 버튼을 클릭하면 a 태그 안의 글자를 div 출력하고
+
+ // a 태그안의 글자는 네이버로 변경하고 글자 색상을 red
+
+ // div 는 배경색상을 노란색으로 설정
+
+ // a 태그의 기본 이벤트는 제거
+	$("#bu").click(function(){	
+	var x = $("#aaa").text();
+	$("#test").text(x);
+	$("#aaa").text("네이버");
+	$("#aaa").css("color","red");
+	$("#test").css("backgroundColor","yellow");
+ 	});
+		$("a").click(function(event){
+		event.preventDefault();
+		});
+
+});
+
+ </script>
+
+</head>
+
+<body>
+
+ <a href="http://www.seoulit.co.kr" id="aaa">서울IT교육센터</a>
+
+ <div id="test"></div>
+
+ <button id="bu">바꾸세요</button>
+
+</body>
+
+</html>

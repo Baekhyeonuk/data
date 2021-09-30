@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <style>
+
+ .copy { color: red; font-weight:bold; }
+
+ div { background-color:yellow; }
+
+ </style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+/*
+	function font(){
+	$(this).animate({fontSize: "+=1px"});
+	}
+	function backcolor(){
+	$(this).css("backgroundColor","blue");
+	}
+*/
+
+
+ $(document).ready(function(){
+  // p 태그는 클릭을 하면 1px 글자 크기가 커지는 이벤트를 가지고 있고
+
+  // 배경색상을 blue 로 바꾸는 이벤트도 있음
+
+  // 첫번째 버튼을 클릭하면 첫번째 p 복사하고 div 요소 내부의 끝에 추가한뒤 글자색상은 red 굵게 처리(style에 미리 정의되어 있음)
+
+  // p 요소 복사시에 이벤트로 같이 복사 할 수 있도록
+
+  // 두번째 버튼을 클릭하면 p 요소에 있는 클릭 이벤트 중에서 배경 바뀌는 이벤트만 제거
+	//$("p").click(function(){
+
+	//$(this).animate({fontSize: "+=1px"});
+	//$(this).css("backgroundColor","blue");
+	//});
+
+	//$("body").on("click","p",font);
+	//$("body").on("click","p",backcolor);
+	
+	$("p").on({ 
+			click : function(){
+			$(this).animate({fontSize: "+=1px"});
+			},
+			click : function backcolor(){
+			$(this).css("backgroundColor","blue");
+			}
+	});
+
+	$("#bt1").click(function(){
+
+	$("p:first").clone(true).appendTo("div");
+	$("p:nth-child(1n+3)").addClass("copy");
+
+
+	});
+
+	$("#bt2").click(function(){
+		//$("body").on("click","p",change);
+		$("body").off("click",backcolor);
+	});
+
+});
+
+ 
+
+ </script>
+
+</head>
+
+<body>
+
+ <div>
+
+  <p>첫번째 단락</p>
+
+  <p>두번째 단락</p>
+
+ </div>
+
+ <button id="bt1">첫번째 p 복사하고 div 요소 내부의 끝에 추가한뒤 글자색상은 red 굵게 처리</button><br />
+
+ <button id="bt2">색상 이벤트 제거</button>
+
+</body>
+
+</html>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제5</title>
+
+ <meta charset="UTF-8">
+
+ </script>
+
+ <style>
+
+  td {
+
+   border: 1px solid #333333;
+
+   width: 50px;
+
+   height: 50px;
+
+   text-align: center;
+
+  }
+
+ </style>
+
+    <script>
+
+ // 행 갯수, 열 갯수를 입력하면 자동을 테이블 생성하는 이벤트를 구성
+ // 풀이
+window.onload = function () {
+
+	var aaa = document.getElementById("test");
+
+  aaa.onclick = function() {
+
+		var tableTag = document.createElement("table");
+
+		var aa = document.getElementById("aa").value;
+		var bb = document.getElementById("bb").value;
+
+		var num = 1;
+
+ for(var i=0; i < aa; i++) {
+
+	 var trTag = document.createElement("tr");
+
+	for(var j=0; j < bb; j++) {
+
+		var tdTag = document.createElement("td");
+
+		var node = document.createTextNode(num);
+		// 텍스트 생성
+
+		tdTag.appendChild(node);
+		// 요소(태그)에 텍스트 노드를 연결
+
+		trTag.appendChild(tdTag);
+		num++;
+	 }
+
+	tableTag.appendChild(trTag);
+  }
+
+	document.getElementById("div1").appendChild(tableTag);
+
+  }
+
+};
+
+
+    </script>
+
+</head>
+
+<body>
+
+행 갯수 : <input type="text" id="aa" value=""><br />
+
+열 갯수 : <input type="text" id="bb" value=""><br />
+
+<button id="test" onclick="aaa();">테이블 만들기</button>
+
+<div id="div1"></div>
+
+</body>
+
+</html>

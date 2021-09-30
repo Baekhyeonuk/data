@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<style>
+div {
+width:300px;
+height:150px;
+background-color:#FFFF00;
+font-size:20px;
+}
+</style>
+<script>
+//마우스 오버 , 마우스 아웃
+
+function mOver(obj) {
+obj.innerHTML = "올렸습니다.";
+}
+
+function mOut(obj) {
+obj.innerHTML = "원위치로";
+}
+</script>
+</head>
+<body>
+<div onmouseover="mOver(this)" onmouseout="mOut(this)">마우스를 올려보세요.<div>
+</body>
+</html>
+

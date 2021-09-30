@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.siblings * {
+display: block;
+border: 2px solid lightgrey;
+color: lightgrey;
+padding: 5px;
+margin: 15px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+$("li.start").siblings().css({"color": "red", "border": "2px solid red"});
+// 같은 부모를 가지는 형제들
+// next, prev 
+
+});
+</script>
+</head>
+<body>
+
+<div style="width:500px;" class="siblings">
+<ul>ul (parent)
+<li>li (the previous sibling of "start")</li>
+<li>li (the previous sibling of "start")</li>
+<li class="start">li (sibling)</li>
+<li>li (the next sibling of "start")</li>
+<li>li (the next sibling of "start")</li>
+</ul>
+<ul>ul (parent)
+<li>li (the previous sibling of "start")</li>
+<li>li (the previous sibling of "start")</li>
+<li>li (sibling)</li>
+<li>li (the next sibling of "start")</li>
+<li>li (the next sibling of "start")</li>
+</ul>
+</div>
+
+</body>
+</html>
+ 

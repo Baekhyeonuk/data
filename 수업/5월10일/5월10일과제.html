@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>과제 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+
+//  기준일 ( 2021년 1월 1일에서) 100일, 200일 , 365일째 되는날 함수로  
+
+
+
+	var y = Number(prompt("년도입력", ""));
+	var m = Number(prompt("월입력", ""));
+	var d = Number(prompt("일입력", ""));
+
+	var tday = new Date();
+	var dday = new Date(y, m-1, d);
+
+	var term = tday.getTime() - dday.getTime();
+	term = Math.ceil(term / (1000 * 60 * 60 * 24));
+	document.write(term+"일 지났습니다.");
+	document.write("<br/>");
+
+	
+	function day(c){
+
+  	var anu = Math.ceil(dday.getTime()+(1000 * 60 * 60 * 24 * c));
+	
+	var miliday = new Date(anu);
+	
+	document.write(c  +"일째 되는 날은 ");	
+	document.write(miliday.getFullYear() + "년");
+	document.write(miliday.getMonth()+1+"월");
+	document.write(miliday.getDate()+"일");
+	document.write(" 입니다"+"<br/>");
+	}
+
+	day(100);
+	day(200);
+	day(365);
+	
+
+
+	/*
+	var a;
+    a = Math.ceil(dday.getTime+(1000*60*60*24)*100);
+	document.write(a.getFullYear()+1+"년");
+	document.write(a.getMonth()+"월");
+	document.write(a.getDate()+"일");
+	*/
+
+
+
+/*
+	document.write("" +  );
+	document.write("<br/>");
+
+
+	document.write(a);
+	document.write("<br/>");
+
+	
+	document.write(a);
+*/
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

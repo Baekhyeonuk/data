@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>4월28일과제</title>
+  <meta charset="UTF-8">
+  <style>
+	.a{
+		color: blue;
+	}
+	
+
+  </style>
+</head>
+<body>
+	<h1><회원가입></h1>
+
+	<form>
+	<fieldset>
+	<legend>필수입력</legend>
+	<span class="a">아이디</span>	<input type="text"><br/>
+	<span class="a">비밀번호</span>		<input type="password"><br/>
+	<span class="a">비밀번호확인</span>	<input type="password"><br/>
+	<span class="a">성명</span>			<input type="text"><br/>
+	<span class="a">성별</span>  <input type="radio" name="r1">남성<input type="radio" name="r1">여성<br/>
+	<span class="a">휴대전화</span><select>
+			<option value="1">선택</option>
+			<option value="2">010</option>
+			<option value="3">011</option>
+			<option value="4">012</option>
+		   </select>
+	<span><input type="text"></span><br/>
+	</fieldset>
+	<fieldset>
+	<legend>선택입력</legend>
+	<span class="a">E-Mail</span><input type="text">@<select>
+											<option value="1">naver.com</option>
+											<option value="2">daum.net</option>
+											<option value="3">gmail.com</option>
+	</select><br/>
+	<span class="a">취미 </span><input type="checkbox" name="c1">낚시 <input type="checkbox" name="c1">영화 <input type="checkbox" name="c1">음악<br/>
+	<span class="a">관심분야</span><select>
+			<option value="1">선택</option>
+			<option value="2">IT</option>
+			<option value="3">언론</option>
+			<option value="4">방송</option>
+			<option value="5">기타</option>
+		</select><br/>
+
+	<textarea cols="50"></textarea>
+	
+	</fieldset>	
+	<input type="submit" value="취소"><input type="submit" value="회원가입">
+
+	</form>
+
+</body>
+
+</html>

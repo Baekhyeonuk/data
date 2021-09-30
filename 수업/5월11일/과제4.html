@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>과제4</title>
+
+<style>
+  div {
+
+   width:500px;
+
+   height:150px;
+
+   background-color:#FFFF00;
+
+   font-size:20px;
+
+  }
+
+</style>
+
+
+    <script>
+ function aaa() {
+  // p 태그안에 있는 텍스트를 순서대로
+  // 자동 으로 li 로 생성하세요.
+ /* var x = document.getElementsByTagName("p");
+
+  var para =document.createElement("li");
+
+  var t = document.createTextNode(x);
+  var b = document.getElementById("demo");
+  para.appendChild(t);
+  b.appenChild(para);
+*/
+	// 풀이
+	// <li>수박</li>
+	var x = document.getElementsByTagName("p");
+	// x는 배열
+
+	for(var i=0; i<x.length; i++){
+		
+		x[i].innerHTML;
+		var para = document.createElement("li");
+		var t = document.createTextNode(x[i].innerHTML);
+		para.appendChild(t);
+
+ 		document.getElementById("myList").appendChild(para);		
+
+	}
+
+
+ }
+
+    </script>
+
+</head>
+
+<body>
+
+<p class = "a">수박</p>
+
+<p class = "a">복숭아</p>
+
+<p class = "a">포도</p>
+
+
+
+<ul id="myList">
+
+</ul>
+<button onclick="aaa();">클릭하세요.</button>
+
+</body>
+
+</html>

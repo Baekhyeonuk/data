@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#test { color:red; }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+// appendTo,prependTo 있던 요소를  위치 옮기기
+
+$(document).ready(function(){
+
+$("button").click(function(){
+$("h1").appendTo("p");
+});
+
+});
+</script>
+</head>
+<body>
+
+<h1 id="test">제목이어라</h1>
+
+<p>첫번째 단락.</p>
+<p>두번째 단락.</p>
+
+<button>h1의 요소를 p 요소의 끝에 이동하기</button>
+
+</body>
+</html>

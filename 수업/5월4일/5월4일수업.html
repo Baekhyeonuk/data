@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+  <script>
+/*
+	var test,test1;
+	var test=100;
+
+	document.write(test);
+
+	test=50;
+	document.write(test);
+*/
+/*
+	증감 연산자 : 값을 더하거나 뺌
+	변수++ : 해당 문장을 실행한 후에 값을 더함
+	++변수: 먼저 더하고  그  다음 실행
+	변수++==> 변수=변수+1
+
+
+	// 변수를 선언합니다.
+
+	var num = 10;
+
+	// 출력합니다.
+	document.write(num++); // 10 출력한 다음 연산 된 결과 11
+	document.write("<br />");
+
+	document.write(num++); // 11 출력한 다음 연산 결과 12
+	document.write("<br />");
+
+	document.write(num++); // 12 출력한 다음 연산 결과 13
+
+	document.write(++num); // 1증가한 후 출력 11
+	document.write("<br />");
+
+	document.write(++num); // 12
+	document.write("<br />");
+
+	document.write(++num); // 13
+*/
+/*
+	복합대입 연산자(=)
+	변수+=값; ==> 변수=변수+값;
+
+	var aaa=10;
+
+	//aaa=aaa+5;  = aaa+=5;
+	aaa+=5
+	document.write(aaa);
+*/
+/*	
+	비교연산자
+	피연산자를 비교하여 참인지 여부를 판별 : true,false 값 반환
+
+	var a=10;
+	var b=5;
+
+	document.write(a==b);	//false
+	document.write("<br/>");
+	var a=10;
+	var b=10;
+
+	document.write(a==b);	//true
+	document.write("<br/>");
+
+	var a="5";
+	var b=5;
+
+	document.write(a==b); //true
+	document.write("<br/>");
+
+	var a=0;
+	var b="";
+
+	document.write(a==b); //true
+	document.write("<br/>");
+	  // ==, !=, >, <, >=, <=
+	
+	var a="5";
+	var b=5;
+
+	document.write(a===b);  //false
+	// ===  값,자료형까지 비교
+
+	논리연산자
+
+	var a=10;
+	var b=5;
+
+	document.write(a==10&&b==5);	 // true
+	// &&두개 연산이 모두 true일때 true 반환
+
+	var a=10;
+	var b=4;
+
+	document.write(a==10&&b==5);	 // false
+	// &&두개 연산이 모두 true일때 true 반환
+
+	var a=10;
+	var b=5;
+
+	document.write(a==10 // b==4);	 // true
+	// 두개 연산 중 하나라도 true일때 true 반환
+*/
+/*
+	<IF조건문>
+	if(조건식){
+		조건식 참일 경우 실행 문장
+	}
+
+	var a=10;
+	
+	if(a%2==0){
+
+	document.write("짝수입니다.");
+	}
+	document.write("<br/>");
+	document.write("무조건실행합니다 .");
+
+	var a=5;
+	
+	if(a%2==0){
+
+	document.write("짝수입니다.");
+	}
+	document.write("<br/>");
+	document.write("무조건실행합니다 .");
+
+	if(a%2==0){
+
+	document.write("짝수입니다.");
+	//조건식이 true 일때 실행
+	} else{
+
+	document.write("홀수입니다.");
+	//조건식이 false 일때 실행
+	}
+	document.write("<br/>");
+	document.write("무조건실행합니다 .");
+
+	//prompt 입력받아서
+	var a = Number(prompt("값을 입력하세요",""));
+	if(a%2==0){
+
+	document.write("짝수입니다.");
+	
+	} else{
+
+	document.write("홀수입니다.");
+	
+	}
+	document.write("<br/>");
+	document.write("무조건실행합니다 .");
+*/
+	 //<중첩된 if문>
+
+	var a = 100;
+	if(a > 0) {
+		//숫자가 양수일 경우
+	
+		document.write("양수이면서");
+
+		if(a%2 == 0) {
+			document.write("짝수입니다.");
+	
+		}else{
+			document.write("홀수입니다.");
+		} 
+
+
+	} else {
+
+	document.write("음수입니다.");	
+
+	}
+
+	document.write("<br/>");
+	document.write("무조건실행합니다 .");
+
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+
+</html>

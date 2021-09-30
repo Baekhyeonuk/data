@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<style>
+div {
+width:300px;
+height:150px;
+background-color:#FFFF00;
+font-size:20px;
+}
+</style>
+<script>
+	function myFunction() {
+
+		var x = document.getElementById("myForm").name;
+		var x2 = document.getElementById("myForm").length;
+		// 입력양식 갯수
+		var x3 = document.getElementById("myForm").action
+		document.getElementById("test").innerHTML = "form 이름은 : " + x + "<br />";
+		document.getElementById("test").innerHTML += "form 요소갯수 : " + x2 + "<br />";
+		document.getElementById("test").innerHTML += "form 전송할 경로: " + x3; 
+
+	}
+</script>
+</head>
+<body>
+	<form id="myForm" name="test" method="post" action="test.html">
+		<input type="text" id="myText" value="홍길동">
+		<input type="checkbox">
+	</form>
+	<button onclick="myFunction()">버튼을 눌러보세용</button>
+	<div id="test"></div>
+</body>
+</html>

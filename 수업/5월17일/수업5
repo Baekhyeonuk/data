@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+$("button").click(function(){
+$("p").append(function(n){
+return "<h1>p 태그의 인덱스 값은 " + n + ".</h1>";
+});
+});
+
+});
+</script>
+</head>
+<body>
+
+<h1>제목태그</h1>
+
+<p>첫번째 단락</p>
+<p>두번째 단락</p>
+<p>세번째 단락</p>
+
+<button>append 추가</button>
+
+</body>
+</html>

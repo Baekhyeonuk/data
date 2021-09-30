@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+ <style>
+
+    .css_test textarea {
+
+         width : 500px;
+
+         height : 200px;
+
+     }
+
+ </style>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+  $(document).ready(function(){
+
+   
+
+   $(".eh:checkbox").click(function(){
+
+    var txt = "";
+
+    $(".eh:checked").each(function(n){
+
+      var a = n+1;
+
+      txt += a + ". " +$(this).val() + "\n";
+
+    });
+
+      $("textarea").val(txt);
+
+ 
+
+   });
+
+   $("#all").click(function(){
+
+    
+
+   });
+
+  });
+
+ </script>
+
+</head>
+
+<body>
+
+<div class="css_test">
+
+     <h1>오늘 먹고싶은 야식을 골라 보세요 ~</h1>
+
+  <input type="checkbox" id="all" value="all" />다먹고 싶어용<br>
+
+     <input type="checkbox" class="eh" name="a" value="피자1판" />피자1판<br>
+
+     <input type="checkbox" class="eh" name="a" value="부어먹는 탕수육" />부어먹는 탕수육<br>
+
+     <input type="checkbox" class="eh" name="a" value="찍어먹는 탕수육" />찍어먹는 탕수육<br>
+
+     <input type="checkbox" class="eh" name="a" value="수박" />수박<br>
+
+     <input type="checkbox" class="eh" name="a" value="옛날통닭" />옛날통닭<br>
+
+     <input type="checkbox" class="eh" name="a" value="시원한 맥주" />시원한 맥주<br>
+
+     <br>
+
+     <textarea></textarea>
+
+ </div>
+
+ 
+
+ 
+
+</body>
+
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+</script>
+<script>
+// 책 p.463
+
+
+$(document).ready(function(){
+
+$("button").click(function(){
+
+$("#p1").html("attr(´href´): " + $("a").attr(´href´)
++ "<br />prop(´href´): " + $("a").prop(´href´));
+
+/*$("#p1").html("attr(´checked´): " + $("input").attr(´checked´)
++ "<br />prop(´checked´): " + $("input").prop(´checked´));*/
+
+
+});
+
+});
+</script>
+</head>
+<body>
+
+<button>attr() 과 prop()의 값 체크하기</button>
+<br><br>
+
+<a href="#comment">링크</a>
+<input id="check1" type="radio" checked="checked">
+<label for="check1">Check me</label>
+<p id="p1"></p>
+
+</body>
+</html>

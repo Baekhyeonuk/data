@@ -1,0 +1,31 @@
+
+
+
+
+
+
+/u01/app/oracle  오라클 홈 디렉토리
+
+ls -la  oracle(소유자) dba(그룹)
+
+chown oracle
+chgrp dba
+
+오라클로 로그인
+su - oracle
+
+sqlplus /nolog
+conn /as sysdba; - 관리자로 접속
+
+scott계정생성
+create user scott identified by tiger default tablespace system;
+
+scott 권한 부여
+grant connect, resource, dba to scott;
+
+scott 접속
+conn scott/tiger;
+
+select * from tab; 샘플테이블
+		emp
+

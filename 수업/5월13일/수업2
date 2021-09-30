@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INDEX</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+<style>
+ h1 { border :3px solid red;}
+
+</style>
+
+<script>
+// javascript를 jQuery 로 변경
+
+ //window.onload = function() {
+ $(document).ready(function(){
+
+
+	$("#demo").click(function(){
+	
+	var x  = $("h1").css("border");
+	//css인수가 1개일 경우 속성을 반환
+
+	$("#test").css("color":"blue","background-color":"yellow","font-size":"40px");
+	// 속성:속성값 , 속성:속성값, 속성:속성값 으로 사용가능
+    $("span").css("color","blue");
+	// 태그
+	$(".abc").css("color","blue");
+	// 클래스
+/*
+	$("#test").css("color","blue");
+					// "속성","속성값"
+	$("#test").css("background-color","yellow");
+					// backgroundColor , background-color 두가지 다 사용가능
+	$("#test").css("font-size","40px");
+*/
+
+
+	//document.getElementById("demo").onclick = function () {
+	//document.getElementById("test").style.color = "blue";
+	//document.getElementById("test").style.backgroundColor = "yellow";
+	//document.getElementById("test").style.fontSize = "40px";
+	});
+
+ });
+
+
+
+</script>
+</head>
+<body>
+<h1 id="demo">javascript jQuery</h1>
+<p id="test">변경해 보세요.</p>
+<span>span 태그</span>
+
+<p class="abc">문단태그1</p>
+
+<p class="abc">문단태그2</p>
+
+<p class="abc">문단태그3</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트</title>
+<style>
+/*ul li:nth-child(even) { background-color:yellow;}*/
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+$("ul li:even").css("background-color", "yellow");
+//인덱스 0부터. 인덱스의 짝수
+
+});
+</script>
+</head>
+<body>
+
+<p>List 1:</p>
+<ul>
+<li>Coffee(0)</li>
+<li>Milk(1)</li>
+<li>Tea(2)</li>
+</ul>
+
+<p>List 2:</p>
+<ul>
+<li>Coffee</li>
+<li>Milk</li>
+<li>Tea</li>
+</ul>
+
+</body>
+</html>

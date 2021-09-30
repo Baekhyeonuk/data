@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>과제2</title>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js">
+
+ </script>
+
+ <script>
+
+   $(document).ready(function () {
+
+            // 사용자가 글 목록을 선택하여 select 태그에 change 이벤트 발생
+
+   // 선택한 요소의 value 값과 text 값을 div 에 계속 연결하여 표시되도록
+
+   // 예) 수박의 가격은 5000원 입니다
+
+   // 이전의 값을 유지해서 추가할 수 있도록
+
+   // append() 를 이용하여 출력
+
+	//$("select").change(function){
+	var x = $("option").text();
+	var y = $("option").val();
+
+	$("div").append(x +"의 가격은 " + y +"입니다" );
+
+
+	});        
+
+
+});
+
+ </script>
+
+</head>
+
+<body>
+
+   <select>
+
+        <option value="5000">수박</option>
+
+        <option value="3000">복숭아</option>
+
+        <option value="7000">멜론</option>
+
+        <option value="2000">체리</option>
+
+    </select><br />
+
+ 내가 먹고 싶은 과일
+
+    <div></div>
+
+</body>
+
+</html>

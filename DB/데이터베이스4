@@ -1,0 +1,57 @@
+update userTbl set name='홍길동' where userID='BBK'
+
+rollback
+
+START TRANSACTION
+
+savepoint a
+
+
+INSERT INTO userTbl VALUES('AAA', '홍길동', 1973, '서울', '010', '0000000', 176, '2013-5-5');
+
+SHOW CREATE TABLE buyTbl
+SHOW KEYS FROM buyTbl
+
+제약조건 
+ALTER TABLE buytbl
+DROP FOREIGN KEY buytbl_ibfk_1;
+
+ALTER TABLE buyTbl
+ADD CONSTRAINT FK_userTbl_buyTbl
+FOREIGN KEY (userID)
+REFERENCES userTbl(userID);
+
+
+update userTbl set userID='KBS1' where name='김범수'
+
+1. PRIMARY KEY
+
+테이블에 존재하는 많은 행의 데이터를 구분할 수 있는 식별자
+
+중복되어서도 안되며 NULL 안됨
+
+""
+Ex) 회원 테이블의 회원 아이디, 학생 테이블의 학번
+
+테이블에서는 기본 키를 하나 이상의 열에 설정 가능 
+
+-- 테이블 생성 시
+
+DROP TABLE IF EXISTS Persons;
+
+CREATE TABLE Persons (
+
+    ID varchar(10) PRIMARY KEY,
+
+    Name varchar(10) NOT NULL,
+
+    Age int DEFAULT 20 );
+
+-- 생성된 테이블 수정
+ALTER TABLE Persons ADD PRIMARY KEY (ID) 
+
+-- 기본 키 삭제
+ALTER TABLE Persons DROP PRIMARY KEY 
+
+
+

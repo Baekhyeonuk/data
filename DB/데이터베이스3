@@ -1,0 +1,104 @@
+<데이터베이스>
+
+5. 서브쿼리 (쿼리문 안에 또 커리문이 들어 있는것)
+
+김경호보다 키가 크거나 같은 사람의 이름과  키 출력 
+
+A = select height from userTbl where name='김경호';
+
+select name,height from userTbl where height>=ALL(select height from userTbl where addr='서울');
+
+4) 아이디별로 운동화를 구매한 사람의 평균 구매액 과 아이디, 이름, 주소를 조회
+userTbl u userID,Name,addr / AVG(b.price*b.amount)
+
+select SUM(b.price*b.amount),AVG(b.price*b.amount),u.userID,u.Name,u.addr
+from userTbl as u
+join buyTbl as b
+on u.userID=b.userID
+where b.userID=ANY(select b.userID from buyTbl b where b.prodName='운동화')
+group by b.userID
+
+-- 운동화를 구매한 사용자 아이디 구하기
+-- 그 해당 사용자들의 총 구매액.
+
+select b.userID from buyTbl b where b.prodName='운동화'
+
+6. LEFT JOIN, RIGHT JOIN
+
+select u.userID, u.Name, u.addr, b.prodName 
+from userTbl as u
+LEFT JOIN buyTbl as b
+on u.userID=b.userID
+where b.prodName IS NULL
+
+7. SELF JOIN
+
+우대리(A)의 상사 정보 -- 이름, 연락처(B)를 조회
+
+select B.emp,B.empTel
+from empTbl A
+join empTbl b
+on A.manager=B.emp
+where A.emp='우대리'
+
+SELECT B.emp, B.empTel
+FROM empTbl A
+JOIN empTbl B
+ON A.manager=B.emp
+WHERE A.emp='우대리'
+
+8. VIEW
+ 보안 / 복잡한 쿼리의 중복 배제
+CREATE VIEW v_userTbl
+AS
+SELECT userID, name, addr FROM userTbl;
+삭제 : DROP VIEW 테이블명
+
+
+mysql 내장함수
+<문자열 함수>
+
+1. 문자 수 반환
+CHAR_LENGTH(string),LENGTH(sting)
+ 문자수 반환, byte 수 반환
+
+SELECT name, CHAR_LENGTH(name) FROM userTbl;
+
+2. 문자 연결
+
+CONCAT
+CONCAT_WS
+
+SELECT CONCAT(mobile1, mobile2) FROM userTbl;
+SELECT CONCAT_WS("-", mobile1, mobile2) FROM userTbl;
+
+3. 문자열 대체
+
+INSERT
+string   기준문자열
+position 시작위치(1부터 시작)
+number   길이
+substring 대체할 문자열
+
+mobile2에서  앞 세자리*** 로 표시
+SELECT mobile1, INSERT(mobile2, 1, 3, "***") from userTbl;
+
+4. FORMAT
+구매액 자리수 표시하기
+SELECT FORMAT( price * amount, 0) FROM buyTbl;
+
+5. 문자열 반환
+LEFT(string, number_of_chars), RIGHT(string, number_of_chars)
+MID(string, start, length)
+
+010-345-7890
+SELECT MID('010-3456-7890', 5, 4);
+SELECT LEFT('19800522', 4);
+
+mobile1 mobile2
+010  7777777
+
+010-777-7777
+SELECT CONCAT_WS("-", mobile1, LEFT(mobile2, 3), RIGHT(mobile2, 4)) FROM userTbl;
+
+

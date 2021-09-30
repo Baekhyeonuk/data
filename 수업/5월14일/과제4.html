@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>수업 </title>
+  <meta charset="UTF-8">
+  <style>
+
+  </style>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+  <script>
+$(document).ready(function(){
+  $("#a").click(function(){
+	$("#aa").toggle("slow");
+
+  });
+ $("#b").click(function(){
+	$("#bb").toggle("slow");
+
+  });
+ $("#c").click(function(){
+	$("#cc").toggle("slow");
+
+  });	
+	$("p").css({"background-color" : "black","color":"white"});
+	//$("p").css("font","bold");
+	$("#aa").css({"background-color" : "green","color":"white"});
+	$("#bb").css({"background-color" : "pink","color":"black"});
+	$("#cc").css({"background-color" : "grey","color":"white"});
+	
+});
+
+
+  </script>
+
+
+</head>
+<body>
+
+<p id="a">1.자동차종류</p>
+<ul id="aa">
+	<li>경차</li>
+	<li>준중형</li>
+	<li>대형</li>
+	<li>SUV</li>
+</ul>
+
+<p id="b">2.자동차브랜드</p>
+<ul id="bb">
+	<li>현대</li>
+	<li>기아</li>
+	<li>테슬라</li>
+	<li>벤츠</li>
+</ul>
+
+<p id="c">3.테슬라</p>
+<ul id="cc">
+	<li>모델3</li>
+	<li>모델X</li>
+	<li>모델Y</li>
+	<li>모델S</li>
+</ul>
+</body>
+
+</html>
